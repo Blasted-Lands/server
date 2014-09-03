@@ -125,10 +125,10 @@ enum CharacterFlags
 };
 
 // corpse reclaim times
-#define DEATH_EXPIRE_STEP (5*MINUTE)
+#define DEATH_EXPIRE_STEP (2*MINUTE)
 #define MAX_DEATH_COUNT 3
 
-static const uint32 corpseReclaimDelay[MAX_DEATH_COUNT] = {30, 60, 120};
+static const uint32 corpseReclaimDelay[MAX_DEATH_COUNT] = {15, 30, 60};
 
 //== PlayerTaxi ================================================
 
@@ -1842,10 +1842,11 @@ void Player::RewardRage(uint32 damage, bool attacker)
     float addRage;
 
     float rageconversion = float((0.0091107836 * getLevel() * getLevel()) + 3.225598133 * getLevel()) + 4.2652911f;
-
+	
     if (attacker)
     {
-        addRage = damage / rageconversion * 7.5f;
+        addRage = damage / rageconversion * 7.5f; // old
+		//addRage = 2 * damage / getLevel(); // Terranzin 
     }
     else
     {
