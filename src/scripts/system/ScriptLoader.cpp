@@ -135,6 +135,10 @@ void AddSC_undercity();
 void AddSC_western_plaguelands();
 void AddSC_westfall();
 void AddSC_wetlands();
+void AddSC_exchanger();
+void AddSC_duel_master();
+void AddSC_duel_master_return();
+void AddSC_npc_training_dummy():
 
 void AddEasternKingdomsScripts()
 {
@@ -149,6 +153,10 @@ void AddEasternKingdomsScripts()
     AddSC_boss_gyth();
     AddSC_instance_blackrock_spire();
     AddSC_boss_razorgore();                                 // blackwing_lair
+	AddSC_exchanger();
+	AddSC_duel_master();
+	AddSC_duel_master_return();
+	AddSC_npc_training_dummy():
     AddSC_boss_vaelastrasz();
     AddSC_boss_broodlord();
     AddSC_boss_firemaw();
