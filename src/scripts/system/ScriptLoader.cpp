@@ -29,10 +29,6 @@
 void AddSC_blackrock_depths();                       // blackrock_depths
 void AddSC_boss_ambassador_flamelash();
 void AddSC_boss_draganthaurissan();
-void AddSC_exchanger();
-void AddSC_duel_master();
-void AddSC_duel_master_return();
-void AddSC_npc_training_dummy();
 void AddSC_boss_general_angerforge();
 void AddSC_boss_high_interrogator_gerstahn();
 void AddSC_instance_blackrock_depths();
@@ -158,10 +154,6 @@ void AddEasternKingdomsScripts()
     AddSC_boss_firemaw();
     AddSC_boss_ebonroc();
     AddSC_boss_flamegor();
-	AddSC_exchanger();
-	AddSC_npc_training_dummy();
-	AddSC_duel_master();
-	AddSC_duel_master_return();
     AddSC_boss_chromaggus();
     AddSC_boss_nefarian();
     AddSC_boss_victor_nefarius();
