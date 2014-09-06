@@ -3273,7 +3273,7 @@ int32 Unit::GetMaxPositiveAuraModifier(AuraType auratype) const
 
     AuraList const& mTotalAuraList = GetAurasByType(auratype);
     for (AuraList::const_iterator i = mTotalAuraList.begin(); i != mTotalAuraList.end(); ++i)
-        if ((*i)->GetModifier()->m_amount > modifier && ((*i)->GetSpellProto()->Stances & GetShapeshiftForm()))
+        if ((*i)->GetModifier()->m_amount > modifier)
             { modifier = (*i)->GetModifier()->m_amount; }
 
     return modifier;
