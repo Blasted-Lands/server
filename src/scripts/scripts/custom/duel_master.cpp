@@ -31,9 +31,6 @@ case 0: // Main Menu
 case 1: // Teleport Locations
 	player->CLOSE_GOSSIP_MENU();
     player->TeleportTo(1, -3797.367432f, 1094.845947f, 153.767548f, 6.168524f);
-	Sleep (5);
-	player->SetPvP(false);
-
     player->SEND_GOSSIP_MENU(DEFAULT_GOSSIP_MESSAGE, creature->GetGUID());
     break;
 case 2: // Player Tools
@@ -541,7 +538,6 @@ case 301: // Alliance Mall
 case 302: // Set Weapon Skill MAX
     player->CLOSE_GOSSIP_MENU();
     player->UpdateSkillsToMaxSkillsForLevel();
-	player->SetPvP(false);
     player->GetSession()->SendNotification("Your Weapon Skills Have Been Maxed Out.");
     break;
 case 303: // Level Pet
@@ -555,10 +551,9 @@ case 303: // Level Pet
     player->GetSession()->SendNotification("You do Not Have a Pet.");
     }
     break;
-case 304: // Learn Spells
-	player->CLOSE_GOSSIP_MENU();
+case 304: // Reset talents
 	player->resetTalents();
-	player->SetPvP(false);
+	player->CLOSE_GOSSIP_MENU();
    /* player->CLOSE_GOSSIP_MENU();
     if (player->getClass() == CLASS_PALADIN)
     {

@@ -138,7 +138,7 @@ void AddSC_wetlands();
 void AddSC_exchanger();
 void AddSC_duel_master();
 void AddSC_duel_master_return();
-void AddSC_npc_training_dummy():
+void AddSC_npc_training_dummy();
 
 void AddEasternKingdomsScripts()
 {
@@ -156,7 +156,7 @@ void AddEasternKingdomsScripts()
 	AddSC_exchanger();
 	AddSC_duel_master();
 	AddSC_duel_master_return();
-	AddSC_npc_training_dummy():
+	AddSC_npc_training_dummy();
     AddSC_boss_vaelastrasz();
     AddSC_boss_broodlord();
     AddSC_boss_firemaw();
