@@ -11,7 +11,6 @@ bool GossipHello_exchanger(Player *player, Creature *creature)
         player->ADD_GOSSIP_ITEM( 10, "Consumeable Tokens"                ,GOSSIP_SENDER_MAIN, 501);
 		player->ADD_GOSSIP_ITEM( 10, "Weapon Tokens"                ,GOSSIP_SENDER_MAIN, 502);
 		player->ADD_GOSSIP_ITEM( 10, "Armor Tokens"                ,GOSSIP_SENDER_MAIN, 503);
-		player->ADD_GOSSIP_ITEM( 10, "FLUSH HONOR"					,GOSSIP_SENDER_MAIN, 990);
 
         player->SEND_GOSSIP_MENU(DEFAULT_GOSSIP_MESSAGE, creature->GetGUID());
         return true;
@@ -31,30 +30,9 @@ case 0: // Main Menu
      player->ADD_GOSSIP_ITEM( 10, "Consumeable Tokens"                ,GOSSIP_SENDER_MAIN, 501);
 	 player->ADD_GOSSIP_ITEM( 10, "Weapon Tokens"                ,GOSSIP_SENDER_MAIN, 502);
 	 player->ADD_GOSSIP_ITEM( 10, "Armor Tokens"                ,GOSSIP_SENDER_MAIN, 503);
-	 player->ADD_GOSSIP_ITEM( 10, "FLUSH HONOR"					,GOSSIP_SENDER_MAIN, 990);
 
     player->SEND_GOSSIP_MENU(DEFAULT_GOSSIP_MESSAGE, creature->GetGUID());
     break;
-
-case 990:
-	player->ADD_GOSSIP_ITEM( 10, "Init"                    ,GOSSIP_SENDER_MAIN, 991);
-    /*player->ADD_GOSSIP_ITEM( 10, "Do"                ,GOSSIP_SENDER_MAIN, 992);*/
-
-    player->ADD_GOSSIP_ITEM( 7, "[Main Menu]"                    ,GOSSIP_SENDER_MAIN, 0);
-
-    player->SEND_GOSSIP_MENU(DEFAULT_GOSSIP_MESSAGE, creature->GetGUID());
-    break;
-
-case 991:
-
-	player->CLOSE_GOSSIP_MENU();
-    player->SEND_GOSSIP_MENU(DEFAULT_GOSSIP_MESSAGE, creature->GetGUID());
-	break;
-/*case 992:
-	player->CLOSE_GOSSIP_MENU();
-
-    player->SEND_GOSSIP_MENU(DEFAULT_GOSSIP_MESSAGE, creature->GetGUID());
-	break;*/
 
 case 500: // Profession Token Rewards
     player->ADD_GOSSIP_ITEM( 10, "Engineering"                    ,GOSSIP_SENDER_MAIN, 5);
