@@ -19032,8 +19032,21 @@ void Player::LearnTalent(uint32 talentId, uint32 talentRank)
         { return; }
 
     // learn! (other talent ranks will unlearned at learning)
-    learnSpell(spellid, false);
-    DETAIL_LOG("TalentID: %u Rank: %u Spell: %u\n", talentId, talentRank, spellid);
+	bool hasRanks = false;
+    for (uint8 i = 1; i < MAX_TALENT_RANK; ++i)
+    {
+        if (talentInfo->RankID[i])
+        {
+            hasRanks = true;
+            break;
+        }
+    }
+    if (hasRanks) // Has talent ranks
+        learnSpell(spellid, false);
+    else
+        learnSpellHighRank(spellid);
+   /* learnSpell(spellid, false); *////Agency Fix
+    DETAIL_LOG("TalentID: %u Rank: %u Spell: %u\n", talentId, talentRank, spellid); 
 }
 
 void Player::UpdateFallInformationIfNeed(MovementInfo const& minfo, uint16 opcode)

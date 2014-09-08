@@ -86,9 +86,9 @@ case 519: // Engineering Rewards
 
 case 515: // Reward 1 engineer
 	player->CLOSE_GOSSIP_MENU();
-	if (player->HasItemCount(901001, 1, false))
+	if (player->HasItemCount(901001, 1, true))
 	{
-	player->DestroyItemCount(901001, 1, false);
+	player->DestroyItemCount(901001, 1, true);
 	player->StoreNewItemInInventorySlot(12361, 1);
 	player->GetSession()->SendAreaTriggerMessage("[1] [Blue Sapphire] added to your inventory.");
 	}
@@ -99,9 +99,9 @@ case 515: // Reward 1 engineer
 	break;
 case 514: // Reward 1 engineer
 	player->CLOSE_GOSSIP_MENU();
-	if (player->HasItemCount(901001, 1, false))
+	if (player->HasItemCount(901001, 1, true))
 	{
-	player->DestroyItemCount(901001, 1, false);
+	player->DestroyItemCount(901001, 1, true);
 	player->StoreNewItemInInventorySlot(4611, 1);
 	player->GetSession()->SendAreaTriggerMessage("[1] [Blue Pearl] added to your inventory.");
 	}
@@ -112,9 +112,9 @@ case 514: // Reward 1 engineer
 	break;
 case 513: // Reward 1 engineer
 	player->CLOSE_GOSSIP_MENU();
-	if (player->HasItemCount(901001, 1, false))
+	if (player->HasItemCount(901001, 1, true))
 	{
-	player->DestroyItemCount(901001, 1, false);
+	player->DestroyItemCount(901001, 1, true);
 	player->StoreNewItemInInventorySlot(8151, 1);
 	player->GetSession()->SendAreaTriggerMessage("[1] [Flask of Mojo] added to your inventory.");
 	}
@@ -125,9 +125,9 @@ case 513: // Reward 1 engineer
 	break;
 case 512: // Reward 1 engineer
 	player->CLOSE_GOSSIP_MENU();
-	if (player->HasItemCount(901001, 1, false))
+	if (player->HasItemCount(901001, 1, true))
 	{
-	player->DestroyItemCount(901001, 1, false);
+	player->DestroyItemCount(901001, 1, true);
 	player->StoreNewItemInInventorySlot(7972, 1);
 	player->GetSession()->SendAreaTriggerMessage("[1] [Ichor of Undeath] added to your inventory.");
 	}
@@ -138,9 +138,9 @@ case 512: // Reward 1 engineer
 	break;
 case 511: // Reward 1 engineer
 	player->CLOSE_GOSSIP_MENU();
-	if (player->HasItemCount(901001, 1, false))
+	if (player->HasItemCount(901001, 1, true))
 	{
-	player->DestroyItemCount(901001, 1, false);
+	player->DestroyItemCount(901001, 1, true);
 	player->StoreNewItemInInventorySlot(7075, 1);
 	player->GetSession()->SendAreaTriggerMessage("[1] [Core of Earth] added to your inventory.");
 	}
@@ -151,9 +151,9 @@ case 511: // Reward 1 engineer
 	break;
 case 510: // Reward 1 engineer
 	player->CLOSE_GOSSIP_MENU();
-	if (player->HasItemCount(901001, 1, false))
+	if (player->HasItemCount(901001, 1, true))
 	{
-	player->DestroyItemCount(901001, 1, false);
+	player->DestroyItemCount(901001, 1, true);
 	player->StoreNewItemInInventorySlot(7079, 1);
 	player->GetSession()->SendAreaTriggerMessage("[1] [Globe of Water] added to your inventory.");
 	}
@@ -164,9 +164,9 @@ case 510: // Reward 1 engineer
 	break;
 case 509: // Reward 1 engineer
 	player->CLOSE_GOSSIP_MENU();
-	if (player->HasItemCount(901001, 1, false))
+	if (player->HasItemCount(901001, 1, true))
 	{
-	player->DestroyItemCount(901001, 1, false);
+	player->DestroyItemCount(901001, 1, true);
 	player->StoreNewItemInInventorySlot(7077, 1);
 	player->GetSession()->SendAreaTriggerMessage("[1] [Heart of Fire] added to your inventory.");
 	}
@@ -177,9 +177,9 @@ case 509: // Reward 1 engineer
 	break;
 case 508: // Reward 1 engineer
 	player->CLOSE_GOSSIP_MENU();
-	if (player->HasItemCount(901001, 1, false))
+	if (player->HasItemCount(901001, 1, true))
 	{
-	player->DestroyItemCount(901001, 1, false);
+	player->DestroyItemCount(901001, 1, true);
 	player->StoreNewItemInInventorySlot(12808, 1);
 	player->GetSession()->SendAreaTriggerMessage("[1] [Essence of Undeath] added to your inventory.");
 	}
@@ -190,9 +190,9 @@ case 508: // Reward 1 engineer
 	break;
 case 507: // Reward 1 engineer
 	player->CLOSE_GOSSIP_MENU();
-	if (player->HasItemCount(901001, 1, false))
+	if (player->HasItemCount(901001, 1, true))
 	{
-	player->DestroyItemCount(901001, 1, false);
+	player->DestroyItemCount(901001, 1, true);
 	player->StoreNewItemInInventorySlot(12803, 1);
 	player->GetSession()->SendAreaTriggerMessage("[1] [Living Essence] added to your inventory.");
 	}
@@ -204,9 +204,9 @@ case 507: // Reward 1 engineer
 
 case 506: // Reward 1 engineer
 	player->CLOSE_GOSSIP_MENU();
-	if (player->HasItemCount(901001, 1, false))
+	if (player->HasItemCount(901001, 1, true))
 	{
-	player->DestroyItemCount(901001, 1, false);
+	player->DestroyItemCount(901001, 1, true);
 	player->StoreNewItemInInventorySlot(7069, 1);
 	player->GetSession()->SendAreaTriggerMessage("[1] [Elemental Air] added to your inventory.");
 	}
@@ -217,9 +217,9 @@ case 506: // Reward 1 engineer
 	break;
 case 505: // Reward 1 engineer
 	player->CLOSE_GOSSIP_MENU();
-	if (player->HasItemCount(901001, 1, false))
+	if (player->HasItemCount(901001, 1, true))
 	{
-	player->DestroyItemCount(901001, 1, false);
+	player->DestroyItemCount(901001, 1, true);
 	player->StoreNewItemInInventorySlot(7067, 1);
 	player->GetSession()->SendAreaTriggerMessage("[1] [Elemental Earth] added to your inventory.");
 	}
@@ -230,9 +230,9 @@ case 505: // Reward 1 engineer
 	break;
 case 504: // Reward 1 engineer
 	player->CLOSE_GOSSIP_MENU();
-	if (player->HasItemCount(901001, 1, false))
+	if (player->HasItemCount(901001, 1, true))
 	{
-	player->DestroyItemCount(901001, 1, false);
+	player->DestroyItemCount(901001, 1, true);
 	player->StoreNewItemInInventorySlot(7068, 1);
 	player->GetSession()->SendAreaTriggerMessage("[1] [Elemental Fire] added to your inventory.");
 	}
@@ -243,9 +243,9 @@ case 504: // Reward 1 engineer
 	break;
 case 518: // Reward 1 engineer
 	player->CLOSE_GOSSIP_MENU();
-	if (player->HasItemCount(901001, 1, false))
+	if (player->HasItemCount(901001, 1, true))
 	{
-	player->DestroyItemCount(901001, 1, false);
+	player->DestroyItemCount(901001, 1, true);
 	player->StoreNewItemInInventorySlot(7080, 1);
 	player->GetSession()->SendAreaTriggerMessage("[1] [Essence of Water] added to your inventory.");
 	}
@@ -256,9 +256,9 @@ case 518: // Reward 1 engineer
 	break;
 case 517: // Reward 1 engineer
 	player->CLOSE_GOSSIP_MENU();
-	if (player->HasItemCount(901001, 1, false))
+	if (player->HasItemCount(901001, 1, true))
 	{
-	player->DestroyItemCount(901001, 1, false);
+	player->DestroyItemCount(901001, 1, true);
 	player->StoreNewItemInInventorySlot(7076, 1);
 	player->GetSession()->SendAreaTriggerMessage("[1] [Essence of Earth] added to your inventory.");
 	}
@@ -269,9 +269,9 @@ case 517: // Reward 1 engineer
 	break;
 case 516: // Reward 1 engineer
 	player->CLOSE_GOSSIP_MENU();
-	if (player->HasItemCount(901001, 1, false))
+	if (player->HasItemCount(901001, 1, true))
 	{
-	player->DestroyItemCount(901001, 1, false);
+	player->DestroyItemCount(901001, 1, true);
 	player->StoreNewItemInInventorySlot(7078, 1);
 	player->GetSession()->SendAreaTriggerMessage("[1] [Essence of Fire] added to your inventory.");
 	}
@@ -282,9 +282,9 @@ case 516: // Reward 1 engineer
 	break;
 case 100: // Reward 1 engineer
 	player->CLOSE_GOSSIP_MENU();
-	if (player->HasItemCount(901001, 1, false))
+	if (player->HasItemCount(901001, 1, true))
 	{
-	player->DestroyItemCount(901001, 1, false);
+	player->DestroyItemCount(901001, 1, true);
 	player->StoreNewItemInInventorySlot(19774, 1);
 	player->GetSession()->SendAreaTriggerMessage("[1] [Souldarite] added to your inventory.");
 	}
@@ -295,9 +295,9 @@ case 100: // Reward 1 engineer
 	break;
 case 101: // Reward 2 engineer
 	player->CLOSE_GOSSIP_MENU();
-	if (player->HasItemCount(901001, 1, false))
+	if (player->HasItemCount(901001, 1, true))
 	{
-	player->DestroyItemCount(901001, 1, false);
+	player->DestroyItemCount(901001, 1, true);
 	player->StoreNewItemInInventorySlot(12804, 2);
 	player->GetSession()->SendAreaTriggerMessage("[2] [Powerful Mojo] added to your inventory.");
 	}
@@ -308,9 +308,9 @@ case 101: // Reward 2 engineer
 	break;
 case 102: // Reward 3 engineer
 	player->CLOSE_GOSSIP_MENU();
-	if (player->HasItemCount(901001, 1, false))
+	if (player->HasItemCount(901001, 1, true))
 	{
-	player->DestroyItemCount(901001, 1, false);
+	player->DestroyItemCount(901001, 1, true);
 	player->StoreNewItemInInventorySlot(17010, 1);
 	player->GetSession()->SendAreaTriggerMessage("[1] [Fiery Core] added to your inventory.");
 	}
@@ -321,9 +321,9 @@ case 102: // Reward 3 engineer
 	break;
 case 103: // Reward 4 engineer
 	player->CLOSE_GOSSIP_MENU();
-	if (player->HasItemCount(901001, 1, false))
+	if (player->HasItemCount(901001, 1, true))
 	{
-	player->DestroyItemCount(901001, 1, false);
+	player->DestroyItemCount(901001, 1, true);
 	player->StoreNewItemInInventorySlot(17011, 1);
 	player->GetSession()->SendAreaTriggerMessage("[1] [Lava Core] added to your inventory.");
 	}
@@ -372,9 +372,9 @@ case 615: // Enchanting rewards
     break;
 case 614: // Reward enchanting
 	player->CLOSE_GOSSIP_MENU();
-	if (player->HasItemCount(901001, 1, false))
+	if (player->HasItemCount(901001, 1, true))
 	{
-	player->DestroyItemCount(901001, 1, false);
+	player->DestroyItemCount(901001, 1, true);
 	player->StoreNewItemInInventorySlot(7971, 1);
 	player->GetSession()->SendAreaTriggerMessage("[1] [Black pearl] added to your inventory.");
 	}
@@ -385,9 +385,9 @@ case 614: // Reward enchanting
 	break;
 case 613: // Reward enchanting
 	player->CLOSE_GOSSIP_MENU();
-	if (player->HasItemCount(901001, 1, false))
+	if (player->HasItemCount(901001, 1, true))
 	{
-	player->DestroyItemCount(901001, 1, false);
+	player->DestroyItemCount(901001, 1, true);
 	player->StoreNewItemInInventorySlot(5500, 1);
 	player->GetSession()->SendAreaTriggerMessage("[1] [Iridescent pearl] added to your inventory.");
 	}
@@ -398,9 +398,9 @@ case 613: // Reward enchanting
 	break;
 case 612: // Reward enchanting
 	player->CLOSE_GOSSIP_MENU();
-	if (player->HasItemCount(901001, 1, false))
+	if (player->HasItemCount(901001, 1, true))
 	{
-	player->DestroyItemCount(901001, 1, false);
+	player->DestroyItemCount(901001, 1, true);
 	player->StoreNewItemInInventorySlot(5500, 1);
 	player->GetSession()->SendAreaTriggerMessage("[1] [Iridescent Pearl] added to your inventory.");
 	}
@@ -411,9 +411,9 @@ case 612: // Reward enchanting
 	break;
 case 611: // Reward enchanting
 	player->CLOSE_GOSSIP_MENU();
-	if (player->HasItemCount(901001, 1, false))
+	if (player->HasItemCount(901001, 1, true))
 	{
-	player->DestroyItemCount(901001, 1, false);
+	player->DestroyItemCount(901001, 1, true);
 	player->StoreNewItemInInventorySlot(7081, 1);
 	player->GetSession()->SendAreaTriggerMessage("[1] [Breath of Wind] added to your inventory.");
 	}
@@ -424,9 +424,9 @@ case 611: // Reward enchanting
 	break;
 case 610: // Reward enchanting
 	player->CLOSE_GOSSIP_MENU();
-	if (player->HasItemCount(901001, 1, false))
+	if (player->HasItemCount(901001, 1, true))
 	{
-	player->DestroyItemCount(901001, 1, false);
+	player->DestroyItemCount(901001, 1, true);
 	player->StoreNewItemInInventorySlot(7079, 1);
 	player->GetSession()->SendAreaTriggerMessage("[1] [Globe of Water] added to your inventory.");
 	}
@@ -437,9 +437,9 @@ case 610: // Reward enchanting
 	break;
 case 609: // Reward enchanting
 	player->CLOSE_GOSSIP_MENU();
-	if (player->HasItemCount(901001, 1, false))
+	if (player->HasItemCount(901001, 1, true))
 	{
-	player->DestroyItemCount(901001, 1, false);
+	player->DestroyItemCount(901001, 1, true);
 	player->StoreNewItemInInventorySlot(7075, 1);
 	player->GetSession()->SendAreaTriggerMessage("[1] [Core of Earth] added to your inventory.");
 	}
@@ -450,9 +450,9 @@ case 609: // Reward enchanting
 	break;
 case 608: // Reward enchanting
 	player->CLOSE_GOSSIP_MENU();
-	if (player->HasItemCount(901001, 1, false))
+	if (player->HasItemCount(901001, 1, true))
 	{
-	player->DestroyItemCount(901001, 1, false);
+	player->DestroyItemCount(901001, 1, true);
 	player->StoreNewItemInInventorySlot(7077, 1);
 	player->GetSession()->SendAreaTriggerMessage("[1] [Heart of Fire] added to your inventory.");
 	}
@@ -463,9 +463,9 @@ case 608: // Reward enchanting
 	break;
 case 607: // Reward enchanting
 	player->CLOSE_GOSSIP_MENU();
-	if (player->HasItemCount(901001, 1, false))
+	if (player->HasItemCount(901001, 1, true))
 	{
-	player->DestroyItemCount(901001, 1, false);
+	player->DestroyItemCount(901001, 1, true);
 	player->StoreNewItemInInventorySlot(13926, 1);
 	player->GetSession()->SendAreaTriggerMessage("[1] [Golden Pearl] added to your inventory.");
 	}
@@ -476,9 +476,9 @@ case 607: // Reward enchanting
 	break;
 case 606: // Reward enchanting
 	player->CLOSE_GOSSIP_MENU();
-	if (player->HasItemCount(901001, 1, false))
+	if (player->HasItemCount(901001, 1, true))
 	{
-	player->DestroyItemCount(901001, 1, false);
+	player->DestroyItemCount(901001, 1, true);
 	player->StoreNewItemInInventorySlot(18512, 1);
 	player->GetSession()->SendAreaTriggerMessage("[1] [Larval Acid] added to your inventory.");
 	}
@@ -489,9 +489,9 @@ case 606: // Reward enchanting
 	break;
 case 605: // Reward enchanting
 	player->CLOSE_GOSSIP_MENU();
-	if (player->HasItemCount(901001, 1, false))
+	if (player->HasItemCount(901001, 1, true))
 	{
-	player->DestroyItemCount(901001, 1, false);
+	player->DestroyItemCount(901001, 1, true);
 	player->StoreNewItemInInventorySlot(18335, 1);
 	player->GetSession()->SendAreaTriggerMessage("[1] [Black Diamond] added to your inventory.");
 	}
@@ -502,9 +502,9 @@ case 605: // Reward enchanting
 	break;
 case 604: // Reward enchanting
 	player->CLOSE_GOSSIP_MENU();
-	if (player->HasItemCount(901001, 1, false))
+	if (player->HasItemCount(901001, 1, true))
 	{
-	player->DestroyItemCount(901001, 1, false);
+	player->DestroyItemCount(901001, 1, true);
 	player->StoreNewItemInInventorySlot(12809, 1);
 	player->GetSession()->SendAreaTriggerMessage("[1] [Guardian Stone] added to your inventory.");
 	}
@@ -515,9 +515,9 @@ case 604: // Reward enchanting
 	break;
 case 603: // Reward enchanting
 	player->CLOSE_GOSSIP_MENU();
-	if (player->HasItemCount(901001, 1, false))
+	if (player->HasItemCount(901001, 1, true))
 	{
-	player->DestroyItemCount(901001, 1, false);
+	player->DestroyItemCount(901001, 1, true);
 	player->StoreNewItemInInventorySlot(12811, 1);
 	player->GetSession()->SendAreaTriggerMessage("[1] [Righteous Orb] added to your inventory.");
 	}
@@ -528,9 +528,9 @@ case 603: // Reward enchanting
 	break;
 case 602: // Reward enchanting
 	player->CLOSE_GOSSIP_MENU();
-	if (player->HasItemCount(901001, 1, false))
+	if (player->HasItemCount(901001, 1, true))
 	{
-	player->DestroyItemCount(901001, 1, false);
+	player->DestroyItemCount(901001, 1, true);
 	player->StoreNewItemInInventorySlot(5637, 1);
 	player->GetSession()->SendAreaTriggerMessage("[1] [Large Fang] added to your inventory.");
 	}
@@ -541,9 +541,9 @@ case 602: // Reward enchanting
 	break;
 case 601: // Reward enchanting
 	player->CLOSE_GOSSIP_MENU();
-	if (player->HasItemCount(901001, 1, false))
+	if (player->HasItemCount(901001, 1, true))
 	{
-	player->DestroyItemCount(901001, 1, false);
+	player->DestroyItemCount(901001, 1, true);
 	player->StoreNewItemInInventorySlot(12808, 1);
 	player->GetSession()->SendAreaTriggerMessage("[1] [Essence of Undeath] added to your inventory.");
 	}
@@ -554,9 +554,9 @@ case 601: // Reward enchanting
 	break;
 case 600: // Reward enchanting
 	player->CLOSE_GOSSIP_MENU();
-	if (player->HasItemCount(901001, 1, false))
+	if (player->HasItemCount(901001, 1, true))
 	{
-	player->DestroyItemCount(901001, 1, false);
+	player->DestroyItemCount(901001, 1, true);
 	player->StoreNewItemInInventorySlot(7972, 1);
 	player->GetSession()->SendAreaTriggerMessage("[1] [Ichor of Undeath] added to your inventory.");
 	}
@@ -567,9 +567,9 @@ case 600: // Reward enchanting
 	break;
 case 104: // Reward 1 enchanting
 	player->CLOSE_GOSSIP_MENU();
-	if (player->HasItemCount(901001, 1, false))
+	if (player->HasItemCount(901001, 1, true))
 	{
-	player->DestroyItemCount(901001, 1, false);
+	player->DestroyItemCount(901001, 1, true);
 	player->StoreNewItemInInventorySlot(7080, 1);
 	player->GetSession()->SendAreaTriggerMessage("[1] [Essence of Water] added to your inventory.");
 	}
@@ -580,9 +580,9 @@ case 104: // Reward 1 enchanting
 	break;
 case 105: // Reward 2 enchanting
 	player->CLOSE_GOSSIP_MENU();
-	if (player->HasItemCount(901001, 1, false))
+	if (player->HasItemCount(901001, 1, true))
 	{
-	player->DestroyItemCount(901001, 1, false);
+	player->DestroyItemCount(901001, 1, true);
 	player->StoreNewItemInInventorySlot(7078, 1);
 	player->GetSession()->SendAreaTriggerMessage("[1] [Essence of Fire] added to your inventory.");
 	}
@@ -593,9 +593,9 @@ case 105: // Reward 2 enchanting
 	break;
 case 106: // Reward 3 enchanting
 	player->CLOSE_GOSSIP_MENU();
-	if (player->HasItemCount(901001, 1, false))
+	if (player->HasItemCount(901001, 1, true))
 	{
-	player->DestroyItemCount(901001, 1, false);
+	player->DestroyItemCount(901001, 1, true);
 	player->StoreNewItemInInventorySlot(7082, 1);
 	player->GetSession()->SendAreaTriggerMessage("[1] [Essence of Air] added to your inventory.");
 	}
@@ -606,9 +606,9 @@ case 106: // Reward 3 enchanting
 	break;
 case 107: // Reward 4 enchanting
 	player->CLOSE_GOSSIP_MENU();
-	if (player->HasItemCount(901001, 1, false))
+	if (player->HasItemCount(901001, 1, true))
 	{
-	player->DestroyItemCount(901001, 1, false);
+	player->DestroyItemCount(901001, 1, true);
 	player->StoreNewItemInInventorySlot(7076, 1);
 	player->GetSession()->SendAreaTriggerMessage("[1] [Essence of Earth] added to your inventory.");
 	}
@@ -678,9 +678,9 @@ case 936: // Leatherworking rewards
     break;
 case 939: // Reward 1 Leatherworking
 	player->CLOSE_GOSSIP_MENU();
-	if (player->HasItemCount(901001, 1, false))
+	if (player->HasItemCount(901001, 1, true))
 	{
-	player->DestroyItemCount(901001, 1, false);
+	player->DestroyItemCount(901001, 1, true);
 	player->StoreNewItemInInventorySlot(8165, 1);
 	player->GetSession()->SendAreaTriggerMessage("[1] [Worn Dragonscale] added to your inventory.");
 	}
@@ -691,9 +691,9 @@ case 939: // Reward 1 Leatherworking
 	break;
 case 938: // Reward 1 Leatherworking
 	player->CLOSE_GOSSIP_MENU();
-	if (player->HasItemCount(901001, 1, false))
+	if (player->HasItemCount(901001, 1, true))
 	{
-	player->DestroyItemCount(901001, 1, false);
+	player->DestroyItemCount(901001, 1, true);
 	player->StoreNewItemInInventorySlot(15412, 1);
 	player->GetSession()->SendAreaTriggerMessage("[1] [Green Dragonscale] added to your inventory.");
 	}
@@ -704,9 +704,9 @@ case 938: // Reward 1 Leatherworking
 	break;
 case 937: // Reward 1 Leatherworking
 	player->CLOSE_GOSSIP_MENU();
-	if (player->HasItemCount(901001, 1, false))
+	if (player->HasItemCount(901001, 1, true))
 	{
-	player->DestroyItemCount(901001, 1, false);
+	player->DestroyItemCount(901001, 1, true);
 	player->StoreNewItemInInventorySlot(15415, 1);
 	player->GetSession()->SendAreaTriggerMessage("[1] [Blue Dragonscale] added to your inventory.");
 	}
@@ -717,9 +717,9 @@ case 937: // Reward 1 Leatherworking
 	break;
 case 996: // Reward 1 Leatherworking
 	player->CLOSE_GOSSIP_MENU();
-	if (player->HasItemCount(901001, 1, false))
+	if (player->HasItemCount(901001, 1, true))
 	{
-	player->DestroyItemCount(901001, 1, false);
+	player->DestroyItemCount(901001, 1, true);
 	player->StoreNewItemInInventorySlot(20500, 1);
 	player->GetSession()->SendAreaTriggerMessage("[1] [Light Silithid Carapace] added to your inventory.");
 	}
@@ -730,9 +730,9 @@ case 996: // Reward 1 Leatherworking
 	break;
 case 995: // Reward 1 Leatherworking
 	player->CLOSE_GOSSIP_MENU();
-	if (player->HasItemCount(901001, 1, false))
+	if (player->HasItemCount(901001, 1, true))
 	{
-	player->DestroyItemCount(901001, 1, false);
+	player->DestroyItemCount(901001, 1, true);
 	player->StoreNewItemInInventorySlot(20498, 1);
 	player->GetSession()->SendAreaTriggerMessage("[1] [Silithid Chitin] added to your inventory.");
 	}
@@ -743,9 +743,9 @@ case 995: // Reward 1 Leatherworking
 	break;
 case 934: // Reward 1 Leatherworking
 	player->CLOSE_GOSSIP_MENU();
-	if (player->HasItemCount(901001, 1, false))
+	if (player->HasItemCount(901001, 1, true))
 	{
-	player->DestroyItemCount(901001, 1, false);
+	player->DestroyItemCount(901001, 1, true);
 	player->StoreNewItemInInventorySlot(20381, 1);
 	player->GetSession()->SendAreaTriggerMessage("[1] [Dreamscale] added to your inventory.");
 	}
@@ -756,9 +756,9 @@ case 934: // Reward 1 Leatherworking
 	break;
 case 933: // Reward 1 Leatherworking
 	player->CLOSE_GOSSIP_MENU();
-	if (player->HasItemCount(901001, 1, false))
+	if (player->HasItemCount(901001, 1, true))
 	{
-	player->DestroyItemCount(901001, 1, false);
+	player->DestroyItemCount(901001, 1, true);
 	player->StoreNewItemInInventorySlot(7079, 1);
 	player->GetSession()->SendAreaTriggerMessage("[1] [Globe of Water] added to your inventory.");
 	}
@@ -769,9 +769,9 @@ case 933: // Reward 1 Leatherworking
 	break;
 case 932: // Reward 1 Leatherworking
 	player->CLOSE_GOSSIP_MENU();
-	if (player->HasItemCount(901001, 1, false))
+	if (player->HasItemCount(901001, 1, true))
 	{
-	player->DestroyItemCount(901001, 1, false);
+	player->DestroyItemCount(901001, 1, true);
 	player->StoreNewItemInInventorySlot(7075, 1);
 	player->GetSession()->SendAreaTriggerMessage("[1] [Core of Earth] added to your inventory.");
 	}
@@ -782,9 +782,9 @@ case 932: // Reward 1 Leatherworking
 	break;
 case 931: // Reward 1 Leatherworking
 	player->CLOSE_GOSSIP_MENU();
-	if (player->HasItemCount(901001, 1, false))
+	if (player->HasItemCount(901001, 1, true))
 	{
-	player->DestroyItemCount(901001, 1, false);
+	player->DestroyItemCount(901001, 1, true);
 	player->StoreNewItemInInventorySlot(7077, 1);
 	player->GetSession()->SendAreaTriggerMessage("[1] [Heart of Fire] added to your inventory.");
 	}
@@ -795,9 +795,9 @@ case 931: // Reward 1 Leatherworking
 	break;
 case 930: // Reward 1 Leatherworking
 	player->CLOSE_GOSSIP_MENU();
-	if (player->HasItemCount(901001, 1, false))
+	if (player->HasItemCount(901001, 1, true))
 	{
-	player->DestroyItemCount(901001, 1, false);
+	player->DestroyItemCount(901001, 1, true);
 	player->StoreNewItemInInventorySlot(15420, 1);
 	player->GetSession()->SendAreaTriggerMessage("[1] [Ironfeather] added to your inventory.");
 	}
@@ -808,9 +808,9 @@ case 930: // Reward 1 Leatherworking
 	break;
 case 929: // Reward 1 Leatherworking
 	player->CLOSE_GOSSIP_MENU();
-	if (player->HasItemCount(901001, 1, false))
+	if (player->HasItemCount(901001, 1, true))
 	{
-	player->DestroyItemCount(901001, 1, false);
+	player->DestroyItemCount(901001, 1, true);
 	player->StoreNewItemInInventorySlot(15417, 1);
 	player->GetSession()->SendAreaTriggerMessage("[1] [Devilsaur Leather] added to your inventory.");
 	}
@@ -821,9 +821,9 @@ case 929: // Reward 1 Leatherworking
 	break;
 case 928: // Reward 1 Leatherworking
 	player->CLOSE_GOSSIP_MENU();
-	if (player->HasItemCount(901001, 1, false))
+	if (player->HasItemCount(901001, 1, true))
 	{
-	player->DestroyItemCount(901001, 1, false);
+	player->DestroyItemCount(901001, 1, true);
 	player->StoreNewItemInInventorySlot(7078, 1);
 	player->GetSession()->SendAreaTriggerMessage("[1] [Essence of Fire] added to your inventory.");
 	}
@@ -834,9 +834,9 @@ case 928: // Reward 1 Leatherworking
 	break;
 case 927: // Reward 1 Leatherworking
 	player->CLOSE_GOSSIP_MENU();
-	if (player->HasItemCount(901001, 1, false))
+	if (player->HasItemCount(901001, 1, true))
 	{
-	player->DestroyItemCount(901001, 1, false);
+	player->DestroyItemCount(901001, 1, true);
 	player->StoreNewItemInInventorySlot(11754, 1);
 	player->GetSession()->SendAreaTriggerMessage("[1] [Black Diamond] added to your inventory.");
 	}
@@ -847,9 +847,9 @@ case 927: // Reward 1 Leatherworking
 	break;
 case 926: // Reward 1 Leatherworking
 	player->CLOSE_GOSSIP_MENU();
-	if (player->HasItemCount(901001, 1, false))
+	if (player->HasItemCount(901001, 1, true))
 	{
-	player->DestroyItemCount(901001, 1, false);
+	player->DestroyItemCount(901001, 1, true);
 	player->StoreNewItemInInventorySlot(12804, 1);
 	player->GetSession()->SendAreaTriggerMessage("[1] [Powerful Mojo] added to your inventory.");
 	}
@@ -860,9 +860,9 @@ case 926: // Reward 1 Leatherworking
 	break;
 case 925: // Reward 1 Leatherworking
 	player->CLOSE_GOSSIP_MENU();
-	if (player->HasItemCount(901001, 1, false))
+	if (player->HasItemCount(901001, 1, true))
 	{
-	player->DestroyItemCount(901001, 1, false);
+	player->DestroyItemCount(901001, 1, true);
 	player->StoreNewItemInInventorySlot(19767, 1);
 	player->GetSession()->SendAreaTriggerMessage("[1] [Primal Bat Leather] added to your inventory.");
 	}
@@ -873,9 +873,9 @@ case 925: // Reward 1 Leatherworking
 	break;
 case 924: // Reward 1 Leatherworking
 	player->CLOSE_GOSSIP_MENU();
-	if (player->HasItemCount(901001, 1, false))
+	if (player->HasItemCount(901001, 1, true))
 	{
-	player->DestroyItemCount(901001, 1, false);
+	player->DestroyItemCount(901001, 1, true);
 	player->StoreNewItemInInventorySlot(19768, 1);
 	player->GetSession()->SendAreaTriggerMessage("[1] [Primal Tiger Leather] added to your inventory.");
 	}
@@ -886,9 +886,9 @@ case 924: // Reward 1 Leatherworking
 	break;
 case 923: // Reward 1 Leatherworking
 	player->CLOSE_GOSSIP_MENU();
-	if (player->HasItemCount(901001, 1, false))
+	if (player->HasItemCount(901001, 1, true))
 	{
-	player->DestroyItemCount(901001, 1, false);
+	player->DestroyItemCount(901001, 1, true);
 	player->StoreNewItemInInventorySlot(17011, 1);
 	player->GetSession()->SendAreaTriggerMessage("[1] [Lava Core] added to your inventory.");
 	}
@@ -899,9 +899,9 @@ case 923: // Reward 1 Leatherworking
 	break;
 case 922: // Reward 1 Leatherworking
 	player->CLOSE_GOSSIP_MENU();
-	if (player->HasItemCount(901001, 1, false))
+	if (player->HasItemCount(901001, 1, true))
 	{
-	player->DestroyItemCount(901001, 1, false);
+	player->DestroyItemCount(901001, 1, true);
 	player->StoreNewItemInInventorySlot(7076, 1);
 	player->GetSession()->SendAreaTriggerMessage("[1] [Essence of Earth] added to your inventory.");
 	}
@@ -912,9 +912,9 @@ case 922: // Reward 1 Leatherworking
 	break;
 case 921: // Reward 1 Leatherworking
 	player->CLOSE_GOSSIP_MENU();
-	if (player->HasItemCount(901001, 1, false))
+	if (player->HasItemCount(901001, 1, true))
 	{
-	player->DestroyItemCount(901001, 1, false);
+	player->DestroyItemCount(901001, 1, true);
 	player->StoreNewItemInInventorySlot(17012, 1);
 	player->GetSession()->SendAreaTriggerMessage("[1] [Core Leather] added to your inventory.");
 	}
@@ -925,9 +925,9 @@ case 921: // Reward 1 Leatherworking
 	break;
 case 920: // Reward 1 Leatherworking
 	player->CLOSE_GOSSIP_MENU();
-	if (player->HasItemCount(901001, 1, false))
+	if (player->HasItemCount(901001, 1, true))
 	{
-	player->DestroyItemCount(901001, 1, false);
+	player->DestroyItemCount(901001, 1, true);
 	player->StoreNewItemInInventorySlot(14227, 1);
 	player->GetSession()->SendAreaTriggerMessage("[1] [Ironweb Spider Silk] added to your inventory.");
 	}
@@ -938,9 +938,9 @@ case 920: // Reward 1 Leatherworking
 	break;
 case 919: // Reward 1 Leatherworking
 	player->CLOSE_GOSSIP_MENU();
-	if (player->HasItemCount(901001, 1, false))
+	if (player->HasItemCount(901001, 1, true))
 	{
-	player->DestroyItemCount(901001, 1, false);
+	player->DestroyItemCount(901001, 1, true);
 	player->StoreNewItemInInventorySlot(17010, 1);
 	player->GetSession()->SendAreaTriggerMessage("[1] [Fiery Core] added to your inventory.");
 	}
@@ -951,9 +951,9 @@ case 919: // Reward 1 Leatherworking
 	break;
 case 918: // Reward 1 Leatherworking
 	player->CLOSE_GOSSIP_MENU();
-	if (player->HasItemCount(901001, 1, false))
+	if (player->HasItemCount(901001, 1, true))
 	{
-	player->DestroyItemCount(901001, 1, false);
+	player->DestroyItemCount(901001, 1, true);
 	player->StoreNewItemInInventorySlot(12809, 1);
 	player->GetSession()->SendAreaTriggerMessage("[1] [Guardian Stone] added to your inventory.");
 	}
@@ -964,9 +964,9 @@ case 918: // Reward 1 Leatherworking
 	break;
 case 917: // Reward 1 Leatherworking
 	player->CLOSE_GOSSIP_MENU();
-	if (player->HasItemCount(901001, 1, false))
+	if (player->HasItemCount(901001, 1, true))
 	{
-	player->DestroyItemCount(901001, 1, false);
+	player->DestroyItemCount(901001, 1, true);
 	player->StoreNewItemInInventorySlot(7082, 1);
 	player->GetSession()->SendAreaTriggerMessage("[1] [Essence of Air] added to your inventory.");
 	}
@@ -977,9 +977,9 @@ case 917: // Reward 1 Leatherworking
 	break;
 case 916: // Reward 1 Leatherworking
 	player->CLOSE_GOSSIP_MENU();
-	if (player->HasItemCount(901001, 1, false))
+	if (player->HasItemCount(901001, 1, true))
 	{
-	player->DestroyItemCount(901001, 1, false);
+	player->DestroyItemCount(901001, 1, true);
 	player->StoreNewItemInInventorySlot(12753, 1);
 	player->GetSession()->SendAreaTriggerMessage("[1] [Skin of Shadow] added to your inventory.");
 	}
@@ -990,9 +990,9 @@ case 916: // Reward 1 Leatherworking
 	break;
 case 915: // Reward 1 Leatherworking
 	player->CLOSE_GOSSIP_MENU();
-	if (player->HasItemCount(901001, 1, false))
+	if (player->HasItemCount(901001, 1, true))
 	{
-	player->DestroyItemCount(901001, 1, false);
+	player->DestroyItemCount(901001, 1, true);
 	player->StoreNewItemInInventorySlot(7080, 1);
 	player->GetSession()->SendAreaTriggerMessage("[1] [Essence of Water] added to your inventory.");
 	}
@@ -1003,9 +1003,9 @@ case 915: // Reward 1 Leatherworking
 	break;
 case 914: // Reward 1 Leatherworking
 	player->CLOSE_GOSSIP_MENU();
-	if (player->HasItemCount(901001, 1, false))
+	if (player->HasItemCount(901001, 1, true))
 	{
-	player->DestroyItemCount(901001, 1, false);
+	player->DestroyItemCount(901001, 1, true);
 	player->StoreNewItemInInventorySlot(12803, 1);
 	player->GetSession()->SendAreaTriggerMessage("[1] [Living Essence] added to your inventory.");
 	}
@@ -1016,9 +1016,9 @@ case 914: // Reward 1 Leatherworking
 	break;
 case 913: // Reward 1 Leatherworking
 	player->CLOSE_GOSSIP_MENU();
-	if (player->HasItemCount(901001, 1, false))
+	if (player->HasItemCount(901001, 1, true))
 	{
-	player->DestroyItemCount(901001, 1, false);
+	player->DestroyItemCount(901001, 1, true);
 	player->StoreNewItemInInventorySlot(18240, 1);
 	player->GetSession()->SendAreaTriggerMessage("[1] [Ogre Tannin] added to your inventory.");
 	}
@@ -1029,9 +1029,9 @@ case 913: // Reward 1 Leatherworking
 	break;
 case 109: // Reward 1 Leatherworking
 	player->CLOSE_GOSSIP_MENU();
-	if (player->HasItemCount(901001, 2, false))
+	if (player->HasItemCount(901001, 2, true))
 	{
-	player->DestroyItemCount(901001, 2, false);
+	player->DestroyItemCount(901001, 2, true);
 	player->StoreNewItemInInventorySlot(12607, 1);
 	player->GetSession()->SendAreaTriggerMessage("[1] [Brilliant Chromatic Scale] added to your inventory.");
 	}
@@ -1042,9 +1042,9 @@ case 109: // Reward 1 Leatherworking
 	break;
 case 110: // Reward 2 Leatherworking
 	player->CLOSE_GOSSIP_MENU();
-	if (player->HasItemCount(901001, 1, false))
+	if (player->HasItemCount(901001, 1, true))
 	{
-	player->DestroyItemCount(901001, 1, false);
+	player->DestroyItemCount(901001, 1, true);
 	player->StoreNewItemInInventorySlot(15416, 1);
 	player->GetSession()->SendAreaTriggerMessage("[1] [Black Dragonscale] added to your inventory.");
 	}
@@ -1055,9 +1055,9 @@ case 110: // Reward 2 Leatherworking
 	break;
 case 111: // Reward 3 Leatherworking
 	player->CLOSE_GOSSIP_MENU();
-	if (player->HasItemCount(901001, 1, false))
+	if (player->HasItemCount(901001, 1, true))
 	{
-	player->DestroyItemCount(901001, 1, false);
+	player->DestroyItemCount(901001, 1, true);
 	player->StoreNewItemInInventorySlot(15414, 1);
 	player->GetSession()->SendAreaTriggerMessage("[1] [Red Dragonscale] added to your inventory.");
 	}
@@ -1068,9 +1068,9 @@ case 111: // Reward 3 Leatherworking
 	break;
 case 112: // Reward 4 Leatherworking
 	player->CLOSE_GOSSIP_MENU();
-	if (player->HasItemCount(901001, 1, false))
+	if (player->HasItemCount(901001, 1, true))
 	{
-	player->DestroyItemCount(901001, 1, false);
+	player->DestroyItemCount(901001, 1, true);
 	player->StoreNewItemInInventorySlot(18512, 1);
 	player->GetSession()->SendAreaTriggerMessage("[1] [Larval Acid] added to your inventory.");
 	}
@@ -1134,9 +1134,9 @@ case 839: // Smithing rewards
     break;
 case 837: // Reward 1 Smithing
 	player->CLOSE_GOSSIP_MENU();
-	if (player->HasItemCount(901001, 1, false))
+	if (player->HasItemCount(901001, 1, true))
 	{
-	player->DestroyItemCount(901001, 1, false);
+	player->DestroyItemCount(901001, 1, true);
 	player->StoreNewItemInInventorySlot(11186, 1);
 	player->GetSession()->SendAreaTriggerMessage("[1] [Red Power Crystal] added to your inventory.");
 	}
@@ -1147,9 +1147,9 @@ case 837: // Reward 1 Smithing
 	break;
 case 836: // Reward 1 Smithing
 	player->CLOSE_GOSSIP_MENU();
-	if (player->HasItemCount(901001, 1, false))
+	if (player->HasItemCount(901001, 1, true))
 	{
-	player->DestroyItemCount(901001, 1, false);
+	player->DestroyItemCount(901001, 1, true);
 	player->StoreNewItemInInventorySlot(8146, 1);
 	player->GetSession()->SendAreaTriggerMessage("[1] [Wicked Claw] added to your inventory.");
 	}
@@ -1160,9 +1160,9 @@ case 836: // Reward 1 Smithing
 	break;
 case 835: // Reward 1 Smithing
 	player->CLOSE_GOSSIP_MENU();
-	if (player->HasItemCount(901001, 1, false))
+	if (player->HasItemCount(901001, 1, true))
 	{
-	player->DestroyItemCount(901001, 1, false);
+	player->DestroyItemCount(901001, 1, true);
 	player->StoreNewItemInInventorySlot(17012, 1);
 	player->GetSession()->SendAreaTriggerMessage("[1] [Core Leather] added to your inventory.");
 	}
@@ -1173,9 +1173,9 @@ case 835: // Reward 1 Smithing
 	break;
 case 834: // Reward 1 Smithing
 	player->CLOSE_GOSSIP_MENU();
-	if (player->HasItemCount(901001, 1, false))
+	if (player->HasItemCount(901001, 1, true))
 	{
-	player->DestroyItemCount(901001, 1, false);
+	player->DestroyItemCount(901001, 1, true);
 	player->StoreNewItemInInventorySlot(8168, 1);
 	player->GetSession()->SendAreaTriggerMessage("[1] [Jet Black Feather] added to your inventory.");
 	}
@@ -1186,9 +1186,9 @@ case 834: // Reward 1 Smithing
 	break;
 case 833: // Reward 1 Smithing
 	player->CLOSE_GOSSIP_MENU();
-	if (player->HasItemCount(901001, 1, false))
+	if (player->HasItemCount(901001, 1, true))
 	{
-	player->DestroyItemCount(901001, 1, false);
+	player->DestroyItemCount(901001, 1, true);
 	player->StoreNewItemInInventorySlot(19774, 1);
 	player->GetSession()->SendAreaTriggerMessage("[1] [Souldarite] added to your inventory.");
 	}
@@ -1199,9 +1199,9 @@ case 833: // Reward 1 Smithing
 	break;
 case 832: // Reward 1 Smithing
 	player->CLOSE_GOSSIP_MENU();
-	if (player->HasItemCount(901001, 1, false))
+	if (player->HasItemCount(901001, 1, true))
 	{
-	player->DestroyItemCount(901001, 1, false);
+	player->DestroyItemCount(901001, 1, true);
 	player->StoreNewItemInInventorySlot(22202, 1);
 	player->GetSession()->SendAreaTriggerMessage("[1] [Small Obsidian Shard] added to your inventory.");
 	}
@@ -1212,9 +1212,9 @@ case 832: // Reward 1 Smithing
 	break;
 case 831: // Reward 1 Smithing
 	player->CLOSE_GOSSIP_MENU();
-	if (player->HasItemCount(901001, 1, false))
+	if (player->HasItemCount(901001, 1, true))
 	{
-	player->DestroyItemCount(901001, 1, false);
+	player->DestroyItemCount(901001, 1, true);
 	player->StoreNewItemInInventorySlot(22203, 1);
 	player->GetSession()->SendAreaTriggerMessage("[1] [Large Obsidian Shard] added to your inventory.");
 	}
@@ -1225,9 +1225,9 @@ case 831: // Reward 1 Smithing
 	break;
 case 830: // Reward 1 Smithing
 	player->CLOSE_GOSSIP_MENU();
-	if (player->HasItemCount(901001, 1, false))
+	if (player->HasItemCount(901001, 1, true))
 	{
-	player->DestroyItemCount(901001, 1, false);
+	player->DestroyItemCount(901001, 1, true);
 	player->StoreNewItemInInventorySlot(13257, 1);
 	player->GetSession()->SendAreaTriggerMessage("[1] [Demonic Rune] added to your inventory.");
 	}
@@ -1238,9 +1238,9 @@ case 830: // Reward 1 Smithing
 	break;
 case 829: // Reward 1 Smithing
 	player->CLOSE_GOSSIP_MENU();
-	if (player->HasItemCount(901001, 1, false))
+	if (player->HasItemCount(901001, 1, true))
 	{
-	player->DestroyItemCount(901001, 1, false);
+	player->DestroyItemCount(901001, 1, true);
 	player->StoreNewItemInInventorySlot(12811, 1);
 	player->GetSession()->SendAreaTriggerMessage("[1] [Righteous Orb] added to your inventory.");
 	}
@@ -1251,9 +1251,9 @@ case 829: // Reward 1 Smithing
 	break;
 case 828: // Reward 1 Smithing
 	player->CLOSE_GOSSIP_MENU();
-	if (player->HasItemCount(901001, 10, false))
+	if (player->HasItemCount(901001, 10, true))
 	{
-	player->DestroyItemCount(901001, 10, false);
+	player->DestroyItemCount(901001, 10, true);
 	player->StoreNewItemInInventorySlot(17203, 1);
 	player->GetSession()->SendAreaTriggerMessage("[1] [Sulfuron Ignot] added to your inventory.");
 	player->PlayDirectSound(8045,0);
@@ -1265,9 +1265,9 @@ case 828: // Reward 1 Smithing
 	break;
 case 827: // Reward 1 Smithing
 	player->CLOSE_GOSSIP_MENU();
-	if (player->HasItemCount(901001, 1, false))
+	if (player->HasItemCount(901001, 1, true))
 	{
-	player->DestroyItemCount(901001, 1, false);
+	player->DestroyItemCount(901001, 1, true);
 	player->StoreNewItemInInventorySlot(7078, 1);
 	player->GetSession()->SendAreaTriggerMessage("[1] [Essence of Fire] added to your inventory.");
 	}
@@ -1278,9 +1278,9 @@ case 827: // Reward 1 Smithing
 	break;
 case 826: // Reward 1 Smithing
 	player->CLOSE_GOSSIP_MENU();
-	if (player->HasItemCount(901001, 1, false))
+	if (player->HasItemCount(901001, 1, true))
 	{
-	player->DestroyItemCount(901001, 1, false);
+	player->DestroyItemCount(901001, 1, true);
 	player->StoreNewItemInInventorySlot(12809, 1);
 	player->GetSession()->SendAreaTriggerMessage("[1] [Guardian Stone] added to your inventory.");
 	}
@@ -1291,9 +1291,9 @@ case 826: // Reward 1 Smithing
 	break;
 case 825: // Reward 1 Smithing
 	player->CLOSE_GOSSIP_MENU();
-	if (player->HasItemCount(901001, 1, false))
+	if (player->HasItemCount(901001, 1, true))
 	{
-	player->DestroyItemCount(901001, 1, false);
+	player->DestroyItemCount(901001, 1, true);
 	player->StoreNewItemInInventorySlot(12804, 1);
 	player->GetSession()->SendAreaTriggerMessage("[1] [Powerful Mojo] added to your inventory.");
 	}
@@ -1304,9 +1304,9 @@ case 825: // Reward 1 Smithing
 	break;
 case 824: // Reward 1 Smithing
 	player->CLOSE_GOSSIP_MENU();
-	if (player->HasItemCount(901001, 1, false))
+	if (player->HasItemCount(901001, 1, true))
 	{
-	player->DestroyItemCount(901001, 1, false);
+	player->DestroyItemCount(901001, 1, true);
 	player->StoreNewItemInInventorySlot(7077, 1);
 	player->GetSession()->SendAreaTriggerMessage("[1] [Heart of Fire] added to your inventory.");
 	}
@@ -1317,9 +1317,9 @@ case 824: // Reward 1 Smithing
 	break;
 case 823: // Reward 1 Smithing
 	player->CLOSE_GOSSIP_MENU();
-	if (player->HasItemCount(901001, 1, false))
+	if (player->HasItemCount(901001, 1, true))
 	{
-	player->DestroyItemCount(901001, 1, false);
+	player->DestroyItemCount(901001, 1, true);
 	player->StoreNewItemInInventorySlot(12753, 1);
 	player->GetSession()->SendAreaTriggerMessage("[1] [Skin of Shadow] added to your inventory.");
 	}
@@ -1330,9 +1330,9 @@ case 823: // Reward 1 Smithing
 	break;
 case 822: // Reward 1 Smithing
 	player->CLOSE_GOSSIP_MENU();
-	if (player->HasItemCount(901001, 1, false))
+	if (player->HasItemCount(901001, 1, true))
 	{
-	player->DestroyItemCount(901001, 1, false);
+	player->DestroyItemCount(901001, 1, true);
 	player->StoreNewItemInInventorySlot(15417, 1);
 	player->GetSession()->SendAreaTriggerMessage("[1] [Devilsaur Leather] added to your inventory.");
 	}
@@ -1343,9 +1343,9 @@ case 822: // Reward 1 Smithing
 	break;
 case 821: // Reward 1 Smithing
 	player->CLOSE_GOSSIP_MENU();
-	if (player->HasItemCount(901001, 1, false))
+	if (player->HasItemCount(901001, 1, true))
 	{
-	player->DestroyItemCount(901001, 1, false);
+	player->DestroyItemCount(901001, 1, true);
 	player->StoreNewItemInInventorySlot(20520, 1);
 	player->GetSession()->SendAreaTriggerMessage("[1] [Dark Rune] added to your inventory.");
 	}
@@ -1356,9 +1356,9 @@ case 821: // Reward 1 Smithing
 	break;
 case 820: // Reward 1 Smithing
 	player->CLOSE_GOSSIP_MENU();
-	if (player->HasItemCount(901001, 1, false))
+	if (player->HasItemCount(901001, 1, true))
 	{
-	player->DestroyItemCount(901001, 1, false);
+	player->DestroyItemCount(901001, 1, true);
 	player->StoreNewItemInInventorySlot(7910, 1);
 	player->GetSession()->SendAreaTriggerMessage("[1] [Star Ruby] added to your inventory.");
 	}
@@ -1369,9 +1369,9 @@ case 820: // Reward 1 Smithing
 	break;
 case 819: // Reward 1 Smithing
 	player->CLOSE_GOSSIP_MENU();
-	if (player->HasItemCount(901001, 1, false))
+	if (player->HasItemCount(901001, 1, true))
 	{
-	player->DestroyItemCount(901001, 1, false);
+	player->DestroyItemCount(901001, 1, true);
 	player->StoreNewItemInInventorySlot(12361, 1);
 	player->GetSession()->SendAreaTriggerMessage("[1] [Blue Sapphire] added to your inventory.");
 	}
@@ -1382,9 +1382,9 @@ case 819: // Reward 1 Smithing
 	break;
 case 818: // Reward 1 Smithing
 	player->CLOSE_GOSSIP_MENU();
-	if (player->HasItemCount(901001, 1, false))
+	if (player->HasItemCount(901001, 1, true))
 	{
-	player->DestroyItemCount(901001, 1, false);
+	player->DestroyItemCount(901001, 1, true);
 	player->StoreNewItemInInventorySlot(12808, 1);
 	player->GetSession()->SendAreaTriggerMessage("[1] [Essence of Undeath] added to your inventory.");
 	}
@@ -1395,9 +1395,9 @@ case 818: // Reward 1 Smithing
 	break;
 case 817: // Reward 1 Smithing
 	player->CLOSE_GOSSIP_MENU();
-	if (player->HasItemCount(901001, 1, false))
+	if (player->HasItemCount(901001, 1, true))
 	{
-	player->DestroyItemCount(901001, 1, false);
+	player->DestroyItemCount(901001, 1, true);
 	player->StoreNewItemInInventorySlot(7068, 1);
 	player->GetSession()->SendAreaTriggerMessage("[1] [Elemental Fire] added to your inventory.");
 	}
@@ -1408,9 +1408,9 @@ case 817: // Reward 1 Smithing
 	break;
 case 113: // Reward 1 Smithing
 	player->CLOSE_GOSSIP_MENU();
-	if (player->HasItemCount(901001, 1, false))
+	if (player->HasItemCount(901001, 1, true))
 	{
-	player->DestroyItemCount(901001, 1, false);
+	player->DestroyItemCount(901001, 1, true);
 	player->StoreNewItemInInventorySlot(17010, 1);
 	player->GetSession()->SendAreaTriggerMessage("[1] [Fiery Core] added to your inventory.");
 	}
@@ -1421,9 +1421,9 @@ case 113: // Reward 1 Smithing
 	break;
 case 114: // Reward 2 Smithing
 	player->CLOSE_GOSSIP_MENU();
-	if (player->HasItemCount(901001, 1, false))
+	if (player->HasItemCount(901001, 1, true))
 	{
-	player->DestroyItemCount(901001, 1, false);
+	player->DestroyItemCount(901001, 1, true);
 	player->StoreNewItemInInventorySlot(11382, 1);
 	player->GetSession()->SendAreaTriggerMessage("[1] [Blood of the Mountain] added to your inventory.");
 	}
@@ -1434,9 +1434,9 @@ case 114: // Reward 2 Smithing
 	break;
 case 115: // Reward 3 Smithing
 	player->CLOSE_GOSSIP_MENU();
-	if (player->HasItemCount(901001, 1, false))
+	if (player->HasItemCount(901001, 1, true))
 	{
-	player->DestroyItemCount(901001, 1, false);
+	player->DestroyItemCount(901001, 1, true);
 	player->StoreNewItemInInventorySlot(17010, 1);
 	player->GetSession()->SendAreaTriggerMessage("[1] [Lava Core] added to your inventory.");
 	}
@@ -1447,9 +1447,9 @@ case 115: // Reward 3 Smithing
 	break;
 case 116: // Reward 4 Smithing
 	player->CLOSE_GOSSIP_MENU();
-	if (player->HasItemCount(901001, 1, false))
+	if (player->HasItemCount(901001, 1, true))
 	{
-	player->DestroyItemCount(901001, 1, false);
+	player->DestroyItemCount(901001, 1, true);
 	player->StoreNewItemInBestSlots(7067, 1);
 	player->GetSession()->SendAreaTriggerMessage("[1] [Elemental Earth] added to your inventory.");
 	}
@@ -1477,9 +1477,9 @@ case 501: // Consumeable Tokens
 	break;
 case 424: // Reward 1 Consumeables
 	player->CLOSE_GOSSIP_MENU();
-	if (player->HasItemCount(901004, 3, false))
+	if (player->HasItemCount(901004, 3, true))
 	{
-	player->DestroyItemCount(901004, 3, false);
+	player->DestroyItemCount(901004, 3, true);
 	player->StoreNewItemInInventorySlot(10831, 1);
 	player->GetSession()->SendAreaTriggerMessage("[1] [Fel Orb] added to your inventory.");
 	}
@@ -1490,9 +1490,9 @@ case 424: // Reward 1 Consumeables
 	break;
 case 423: // Reward 1 Consumeables
 	player->CLOSE_GOSSIP_MENU();
-	if (player->HasItemCount(901004, 2, false))
+	if (player->HasItemCount(901004, 2, true))
 	{
-	player->DestroyItemCount(901004, 2, false);
+	player->DestroyItemCount(901004, 2, true);
 	player->StoreNewItemInInventorySlot(3456, 1);
 	player->GetSession()->SendAreaTriggerMessage("[1] [Dog Whistle] added to your inventory.");
 	}
@@ -1503,9 +1503,9 @@ case 423: // Reward 1 Consumeables
 	break;
 case 422: // Reward 1 Consumeables
 	player->CLOSE_GOSSIP_MENU();
-	if (player->HasItemCount(901004, 1, false))
+	if (player->HasItemCount(901004, 1, true))
 	{
-	player->DestroyItemCount(901004, 1, false);
+	player->DestroyItemCount(901004, 1, true);
 	player->StoreNewItemInInventorySlot(13514, 1);
 	player->GetSession()->SendAreaTriggerMessage("[1] [Wail of the Banshee] added to your inventory.");
 	}
@@ -1516,9 +1516,9 @@ case 422: // Reward 1 Consumeables
 	break;
 case 421: // Reward 1 Consumeables
 	player->CLOSE_GOSSIP_MENU();
-	if (player->HasItemCount(901004, 1, false))
+	if (player->HasItemCount(901004, 1, true))
 	{
-	player->DestroyItemCount(901004, 1, false);
+	player->DestroyItemCount(901004, 1, true);
 	player->StoreNewItemInInventorySlot(13508, 1);
 	player->GetSession()->SendAreaTriggerMessage("[1] [Eye of Arachnida] added to your inventory.");
 	}
@@ -1529,9 +1529,9 @@ case 421: // Reward 1 Consumeables
 	break;
 case 117: // Reward 1 Consumeables
 	player->CLOSE_GOSSIP_MENU();
-	if (player->HasItemCount(901004, 1, false))
+	if (player->HasItemCount(901004, 1, true))
 	{
-	player->DestroyItemCount(901004, 1, false);
+	player->DestroyItemCount(901004, 1, true);
 	player->StoreNewItemInInventorySlot(8529, 5);
 	player->GetSession()->SendAreaTriggerMessage("[5] [Noggenfogger Elixer] added to your inventory.");
 	}
@@ -1542,9 +1542,9 @@ case 117: // Reward 1 Consumeables
 	break;
 case 118: // Reward 2 Consumeables
 	player->CLOSE_GOSSIP_MENU();
-	if (player->HasItemCount(901004, 1, false))
+	if (player->HasItemCount(901004, 1, true))
 	{
-	player->DestroyItemCount(901004, 1, false);
+	player->DestroyItemCount(901004, 1, true);
 	player->StoreNewItemInInventorySlot(13509, 1);
 	player->GetSession()->SendAreaTriggerMessage("[1] [Clutch of Foresight] added to your inventory.");
 	}
@@ -1555,9 +1555,9 @@ case 118: // Reward 2 Consumeables
 	break;
 case 119: // Reward 3 Consumeables
 	player->CLOSE_GOSSIP_MENU();
-	if (player->HasItemCount(901004, 3, false))
+	if (player->HasItemCount(901004, 3, true))
 	{
-	player->DestroyItemCount(901004, 3, false);
+	player->DestroyItemCount(901004, 3, true);
 	player->StoreNewItemInInventorySlot(4386, 1);
 	player->GetSession()->SendAreaTriggerMessage("[1] [Ice Deflector] added to your inventory.");
 	}
@@ -1568,9 +1568,9 @@ case 119: // Reward 3 Consumeables
 	break;
 case 120: // Reward 4 Consumeables
 	player->CLOSE_GOSSIP_MENU();
-	if (player->HasItemCount(901004, 3, false))
+	if (player->HasItemCount(901004, 3, true))
 	{
-	player->DestroyItemCount(901004, 3, false);
+	player->DestroyItemCount(901004, 3, true);
 	player->StoreNewItemInInventorySlot(4376, 1);
 	player->GetSession()->SendAreaTriggerMessage("[1] [Fire Deflector] added to your inventory.");
 	}
@@ -1600,9 +1600,9 @@ case 502: // Weapon Tokens
 	break;
 case 331: // Reward 1 Weapons
 	player->CLOSE_GOSSIP_MENU();
-	if (player->HasItemCount(901002, 10, false))
+	if (player->HasItemCount(901002, 10, true))
 	{
-	player->DestroyItemCount(901002, 10, false);
+	player->DestroyItemCount(901002, 10, true);
 	player->StoreNewItemInInventorySlot(980008, 1);
 	player->GetSession()->SendAreaTriggerMessage("[1] [Tome of the Lost] added to your inventory.");
 	}
@@ -1613,9 +1613,9 @@ case 331: // Reward 1 Weapons
 	break;
 case 330: // Reward 1 Weapons
 	player->CLOSE_GOSSIP_MENU();
-	if (player->HasItemCount(901002, 10, false))
+	if (player->HasItemCount(901002, 10, true))
 	{
-	player->DestroyItemCount(901002, 10, false);
+	player->DestroyItemCount(901002, 10, true);
 	player->StoreNewItemInInventorySlot(980009, 1);
 	player->GetSession()->SendAreaTriggerMessage("[1] [Dark Iron Reaver] added to your inventory.");
 	}
@@ -1626,9 +1626,9 @@ case 330: // Reward 1 Weapons
 	break;
 case 329: // Reward 1 Weapons
 	player->CLOSE_GOSSIP_MENU();
-	if (player->HasItemCount(901002, 10, false))
+	if (player->HasItemCount(901002, 10, true))
 	{
-	player->DestroyItemCount(901002, 10, false);
+	player->DestroyItemCount(901002, 10, true);
 	player->StoreNewItemInInventorySlot(980010, 1);
 	player->GetSession()->SendAreaTriggerMessage("[1] [The Thunderwood Poker] added to your inventory.");
 	}
@@ -1639,9 +1639,9 @@ case 329: // Reward 1 Weapons
 	break;
 case 328: // Reward 1 Weapons
 	player->CLOSE_GOSSIP_MENU();
-	if (player->HasItemCount(901002, 10, false))
+	if (player->HasItemCount(901002, 10, true))
 	{
-	player->DestroyItemCount(901002, 10, false);
+	player->DestroyItemCount(901002, 10, true);
 	player->StoreNewItemInInventorySlot(980011, 1);
 	player->GetSession()->SendAreaTriggerMessage("[1] [Ravenholdt Slicer] added to your inventory.");
 	}
@@ -1652,9 +1652,9 @@ case 328: // Reward 1 Weapons
 	break;
 case 327: // Reward 1 Weapons
 	player->CLOSE_GOSSIP_MENU();
-	if (player->HasItemCount(901002, 10, false))
+	if (player->HasItemCount(901002, 10, true))
 	{
-	player->DestroyItemCount(901002, 10, false);
+	player->DestroyItemCount(901002, 10, true);
 	player->StoreNewItemInInventorySlot(980012, 1);
 	player->GetSession()->SendAreaTriggerMessage("[1] [Darrowspike] added to your inventory.");
 	}
@@ -1665,9 +1665,9 @@ case 327: // Reward 1 Weapons
 	break;
 case 326: // Reward 1 Weapons
 	player->CLOSE_GOSSIP_MENU();
-	if (player->HasItemCount(901002, 10, false))
+	if (player->HasItemCount(901002, 10, true))
 	{
-	player->DestroyItemCount(901002, 10, false);
+	player->DestroyItemCount(901002, 10, true);
 	player->StoreNewItemInInventorySlot(980013, 1);
 	player->GetSession()->SendAreaTriggerMessage("[1] [Dark Iron Destroyer] added to your inventory.");
 	}
@@ -1678,9 +1678,9 @@ case 326: // Reward 1 Weapons
 	break;
 case 325: // Reward 1 Weapons
 	player->CLOSE_GOSSIP_MENU();
-	if (player->HasItemCount(901002, 10, false))
+	if (player->HasItemCount(901002, 10, true))
 	{
-	player->DestroyItemCount(901002, 10, false);
+	player->DestroyItemCount(901002, 10, true);
 	player->StoreNewItemInInventorySlot(980014, 1);
 	player->GetSession()->SendAreaTriggerMessage("[1] [Sceptre of Smiting] added to your inventory.");
 	}
@@ -1691,9 +1691,9 @@ case 325: // Reward 1 Weapons
 	break;
 case 121: // Reward 1 Weapons
 	player->CLOSE_GOSSIP_MENU();
-	if (player->HasItemCount(901002, 20, false))
+	if (player->HasItemCount(901002, 20, true))
 	{
-	player->DestroyItemCount(901002, 20, false);
+	player->DestroyItemCount(901002, 20, true);
 	player->StoreNewItemInInventorySlot(980015, 1);
 	player->GetSession()->SendAreaTriggerMessage("[1] [Doomulus Prime] added to your inventory.");
 	}
@@ -1704,9 +1704,9 @@ case 121: // Reward 1 Weapons
 	break;
 case 122: // Reward 2 Weapons
 	player->CLOSE_GOSSIP_MENU();
-	if (player->HasItemCount(901002, 20, false))
+	if (player->HasItemCount(901002, 20, true))
 	{
-	player->DestroyItemCount(901002, 20, false);
+	player->DestroyItemCount(901002, 20, true);
 	player->StoreNewItemInInventorySlot(980016, 1);
 	player->GetSession()->SendAreaTriggerMessage("[1] [Zulian Ceremonial Staff] added to your inventory.");
 	}
@@ -1717,9 +1717,9 @@ case 122: // Reward 2 Weapons
 	break;
 case 123: // Reward 3 Weapons
 	player->CLOSE_GOSSIP_MENU();
-	if (player->HasItemCount(901002, 20, false))
+	if (player->HasItemCount(901002, 20, true))
 	{
-	player->DestroyItemCount(901002, 20, false);
+	player->DestroyItemCount(901002, 20, true);
 	player->StoreNewItemInInventorySlot(980017, 1);
 	player->GetSession()->SendAreaTriggerMessage("[1] [Blackhand Doomsaw] added to your inventory.");
 	}
@@ -1730,9 +1730,9 @@ case 123: // Reward 3 Weapons
 	break;
 case 124: // Reward 4 Weapons
 	player->CLOSE_GOSSIP_MENU();
-	if (player->HasItemCount(901002, 20, false))
+	if (player->HasItemCount(901002, 20, true))
 	{
-	player->DestroyItemCount(901002, 20, false);
+	player->DestroyItemCount(901002, 20, true);
 	player->StoreNewItemInInventorySlot(980018, 1);
 	player->GetSession()->SendAreaTriggerMessage("[1] [Lord Valthalak's Staff of Command] added to your inventory.");
 	}
@@ -1756,9 +1756,9 @@ case 503: // Armor Tokens
 
 case 125: // Reward 1 Armor
 	player->CLOSE_GOSSIP_MENU();
-	if (player->HasItemCount(901003, 20, false))
+	if (player->HasItemCount(901003, 20, true))
 	{
-	player->DestroyItemCount(901003, 20, false);
+	player->DestroyItemCount(901003, 20, true);
 	player->StoreNewItemInInventorySlot(11905, 1);
 	player->GetSession()->SendAreaTriggerMessage("[1] [Linken's Boomerang] added to your inventory.");
 	}
@@ -1769,9 +1769,9 @@ case 125: // Reward 1 Armor
 	break;
 case 126: // Reward 2 Armor
 	player->CLOSE_GOSSIP_MENU();
-	if (player->HasItemCount(901003, 25, false))
+	if (player->HasItemCount(901003, 25, true))
 	{
-	player->DestroyItemCount(901003, 25, false);
+	player->DestroyItemCount(901003, 25, true);
 	player->StoreNewItemInInventorySlot(1404, 1);
 	player->GetSession()->SendAreaTriggerMessage("[1] [Tidal's Charm] added to your inventory.");
 	}
@@ -1782,9 +1782,9 @@ case 126: // Reward 2 Armor
 	break;
 case 127: // Reward 3 Armor
 	player->CLOSE_GOSSIP_MENU();
-	if (player->HasItemCount(901003, 10, false))
+	if (player->HasItemCount(901003, 10, true))
 	{
-	player->DestroyItemCount(901003, 10, false);
+	player->DestroyItemCount(901003, 10, true);
 	player->StoreNewItemInInventorySlot(19141, 1);
 	player->GetSession()->SendAreaTriggerMessage("[1] [Luffa] added to your inventory.");
 	}
@@ -1795,9 +1795,9 @@ case 127: // Reward 3 Armor
 	break;
 case 128: // Reward 4 Armor
 	player->CLOSE_GOSSIP_MENU();
-	if (player->HasItemCount(901003, 15, false))
+	if (player->HasItemCount(901003, 15, true))
 	{
-	player->DestroyItemCount(901003, 5, false);
+	player->DestroyItemCount(901003, 5, true);
 	player->StoreNewItemInInventorySlot(2820, 1);
 	player->GetSession()->SendAreaTriggerMessage("[1] [Nifty Stopwatch] added to your inventory.");
 	}
@@ -2028,56 +2028,56 @@ case 304: // Learn Spells
     player->CLOSE_GOSSIP_MENU();
     if (player->getClass() == CLASS_PALADIN)
     {
-        player->learnSpell(7328, false);
-        player->learnSpell(13819, false);
-        player->learnSpell(23214, false);
-        player->learnSpell(5502, false);
+        player->learnSpell(7328, true);
+        player->learnSpell(13819, true);
+        player->learnSpell(23214, true);
+        player->learnSpell(5502, true);
     }
     if (player->getClass() == CLASS_WARRIOR)
     {
-        player->learnSpell(2458, false);
-        player->learnSpell(71, false);
-        player->learnSpell(20252, false);
-        player->learnSpell(7386, false);
-        player->learnSpell(674, false);
+        player->learnSpell(2458, true);
+        player->learnSpell(71, true);
+        player->learnSpell(20252, true);
+        player->learnSpell(7386, true);
+        player->learnSpell(674, true);
     }
     if (player->getClass() == CLASS_SHAMAN)
     {
-        player->learnSpell(2075, false);
-        player->learnSpell(8073, false);
-        player->learnSpell(5396, false);
-        player->learnSpell(674, false);
+        player->learnSpell(2075, true);
+        player->learnSpell(8073, true);
+        player->learnSpell(5396, true);
+        player->learnSpell(674, true);
     }
     if (player->getClass() == CLASS_WARLOCK)
     {
-        player->learnSpell(688, false);
-        player->learnSpell(697, false);
-        player->learnSpell(712, false);
-        player->learnSpell(691, false);
-        player->learnSpell(1122, false);
-        player->learnSpell(5784, false);
-        player->learnSpell(23161, false);
+        player->learnSpell(688, true);
+        player->learnSpell(697, true);
+        player->learnSpell(712, true);
+        player->learnSpell(691, true);
+        player->learnSpell(1122, true);
+        player->learnSpell(5784, true);
+        player->learnSpell(23161, true);
     }
     if (player->getClass() == CLASS_ROGUE)
     {
-        player->learnSpell(2842, false);
-        player->learnSpell(674, false);
+        player->learnSpell(2842, true);
+        player->learnSpell(674, true);
     }
     if (player->getClass() == CLASS_DRUID)
     {
-        player->learnSpell(1066, false);
-        player->learnSpell(5487, false);
-        player->learnSpell(9634, false);
-        player->learnSpell(6807, false);
+        player->learnSpell(1066, true);
+        player->learnSpell(5487, true);
+        player->learnSpell(9634, true);
+        player->learnSpell(6807, true);
     }
     if (player->getClass() == CLASS_HUNTER)
     {
-        player->learnSpell(883, false);
-        player->learnSpell(2641, false);
-        player->learnSpell(6991, false);
-        player->learnSpell(982, false);
-        player->learnSpell(1515, false);
-        player->learnSpell(674, false);
+        player->learnSpell(883, true);
+        player->learnSpell(2641, true);
+        player->learnSpell(6991, true);
+        player->learnSpell(982, true);
+        player->learnSpell(1515, true);
+        player->learnSpell(674, true);
     }
     player->GetSession()->SendNotification("Your Missing Spells Have Been Added.");
     break;
@@ -2085,128 +2085,128 @@ case 304: // Learn Spells
 // ### Learn Professions ###
 case 305: // Alchemy
     player->CLOSE_GOSSIP_MENU();
-    player->learnSpell(2259, false);
-    player->learnSpell(3101, false);
-    player->learnSpell(3464, false);
-    player->learnSpell(11611, false);
+    player->learnSpell(2259, true);
+    player->learnSpell(3101, true);
+    player->learnSpell(3464, true);
+    player->learnSpell(11611, true);
 
     player->UpdateSkill(171, 300);
     player->GetSession()->SendNotification("You Have Been Taught Alchemy.");
     break;
 case 306: // Blacksmithing
     player->CLOSE_GOSSIP_MENU();
-    player->learnSpell(2018, false);
-    player->learnSpell(3100, false);
-    player->learnSpell(3538, false);
-    player->learnSpell(9785, false);
+    player->learnSpell(2018, true);
+    player->learnSpell(3100, true);
+    player->learnSpell(3538, true);
+    player->learnSpell(9785, true);
     
     player->UpdateSkill(164, 300);
     player->GetSession()->SendNotification("You Have Been Taught Blacksmithing.");
     break;
 case 307: // Enchanting
     player->CLOSE_GOSSIP_MENU();
-    player->learnSpell(7411, false);
-    player->learnSpell(7412, false);
-    player->learnSpell(7413, false);
-    player->learnSpell(13920, false);
+    player->learnSpell(7411, true);
+    player->learnSpell(7412, true);
+    player->learnSpell(7413, true);
+    player->learnSpell(13920, true);
     
     player->UpdateSkill(333, 300);
     player->GetSession()->SendNotification("You Have Been Taught Enchanting.");
     break;
 case 308: // Engineering
     player->CLOSE_GOSSIP_MENU();
-    player->learnSpell(4036, false);
-    player->learnSpell(4037, false);
-    player->learnSpell(4038, false);
-    player->learnSpell(12656, false);
+    player->learnSpell(4036, true);
+    player->learnSpell(4037, true);
+    player->learnSpell(4038, true);
+    player->learnSpell(12656, true);
     
     player->UpdateSkill(202, 300);
     player->GetSession()->SendNotification("You Have Been Taught Engineering.");
     break;
 case 309: // Herbalism
     player->CLOSE_GOSSIP_MENU();
-    player->learnSpell(2366, false);
-    player->learnSpell(2368, false);
-    player->learnSpell(3570, false);
-    player->learnSpell(11993, false);
+    player->learnSpell(2366, true);
+    player->learnSpell(2368, true);
+    player->learnSpell(3570, true);
+    player->learnSpell(11993, true);
     
     player->UpdateSkill(182, 300);
     player->GetSession()->SendNotification("You Have Been Taught Herbalism.");
     break;
 case 310: // Leatherworking
     player->CLOSE_GOSSIP_MENU();
-    player->learnSpell(2108, false);
-    player->learnSpell(3104, false);
-    player->learnSpell(3811, false);
-    player->learnSpell(10662, false);
+    player->learnSpell(2108, true);
+    player->learnSpell(3104, true);
+    player->learnSpell(3811, true);
+    player->learnSpell(10662, true);
     
     player->UpdateSkill(165, 300);
     player->GetSession()->SendNotification("You Have Been Taught Leatherworking.");
     break;
 case 311: // Mining
     player->CLOSE_GOSSIP_MENU();
-    player->learnSpell(2575, false);
-    player->learnSpell(2576, false);
-    player->learnSpell(3564, false);
-    player->learnSpell(10248, false);
+    player->learnSpell(2575, true);
+    player->learnSpell(2576, true);
+    player->learnSpell(3564, true);
+    player->learnSpell(10248, true);
     
     player->UpdateSkill(186, 300);
     player->GetSession()->SendNotification("You Have Been Taught Mining.");
     break;
 case 312: // Skinning
     player->CLOSE_GOSSIP_MENU();
-    player->learnSpell(8613, false);
-    player->learnSpell(8617, false);
-    player->learnSpell(8618, false);
-    player->learnSpell(10768, false);
+    player->learnSpell(8613, true);
+    player->learnSpell(8617, true);
+    player->learnSpell(8618, true);
+    player->learnSpell(10768, true);
     
     player->UpdateSkill(393, 300);
     player->GetSession()->SendNotification("You Have Been Taught Skinning.");
     break;
 case 313: // Tailoring
     player->CLOSE_GOSSIP_MENU();
-    player->learnSpell(3908, false);
-    player->learnSpell(3909, false);
-    player->learnSpell(3910, false);
-    player->learnSpell(12180, false);
+    player->learnSpell(3908, true);
+    player->learnSpell(3909, true);
+    player->learnSpell(3910, true);
+    player->learnSpell(12180, true);
     
     player->UpdateSkill(197, 300);
     player->GetSession()->SendNotification("You Have Been Taught Tailoring.");
     break;
 case 314: // Cooking
     player->CLOSE_GOSSIP_MENU();
-    player->learnSpell(2550, false);
-    player->learnSpell(3102, false);
-    player->learnSpell(3413, false);
-    player->learnSpell(18260, false);
+    player->learnSpell(2550, true);
+    player->learnSpell(3102, true);
+    player->learnSpell(3413, true);
+    player->learnSpell(18260, true);
     
     player->UpdateSkill(185, 300);
     player->GetSession()->SendNotification("You Have Been Taught Cooking.");
     break;
 case 315: // First Aid
     player->CLOSE_GOSSIP_MENU();
-    player->learnSpell(3273, false);
-    player->learnSpell(3274, false);
-    player->learnSpell(7924, false);
-    player->learnSpell(10846, false);
+    player->learnSpell(3273, true);
+    player->learnSpell(3274, true);
+    player->learnSpell(7924, true);
+    player->learnSpell(10846, true);
     
     player->UpdateSkill(129, 300);
     player->GetSession()->SendNotification("You Have Been Taught First Aid.");
     break;
 case 316: // Fishing
     player->CLOSE_GOSSIP_MENU();
-    player->learnSpell(7620, false);
-    player->learnSpell(7731, false);
-    player->learnSpell(7732, false);
-    player->learnSpell(18248, false);
+    player->learnSpell(7620, true);
+    player->learnSpell(7731, true);
+    player->learnSpell(7732, true);
+    player->learnSpell(18248, true);
     
     player->UpdateSkill(356, 300);
     player->GetSession()->SendNotification("You Have Been Taught Fishing.");
     break;
 case 317: // Learn Riding
     player->CLOSE_GOSSIP_MENU();
-    player->learnSpell(33388, false);
-    player->learnSpell(33391, false);
+    player->learnSpell(33388, true);
+    player->learnSpell(33391, true);
 
     player->UpdateSkill(762, 150);
     player->GetSession()->SendNotification("You Have Been Taught Riding.");
