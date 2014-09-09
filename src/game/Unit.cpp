@@ -4634,9 +4634,15 @@ void Unit::SetPowerType(Powers new_powertype)
         if (new_powertype == POWER_RAGE)
             curValue = 0;
 
-        // set power
+        /* set power
         SetMaxPower(new_powertype, maxValue);
-        SetPower(new_powertype, curValue);
+        SetPower(new_powertype, curValue); *///OLD DRUID SHAPESHIFT AGENCY
+		// set power (except for mana) 
+        if (new_powertype != POWER_MANA) 
+        { 
+            SetMaxPower(new_powertype, maxValue); 
+            SetPower(new_powertype, curValue); 
+        } 
     }
 }
 
