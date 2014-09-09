@@ -213,6 +213,14 @@ void WorldSession::HandleWhoOpcode(WorldPacket& recv_data)
             { continue; }
 
         std::string pname = pl->GetName();
+		std::string pname;
+        if (itr->second->isGameMaster())
+        {
+            pname = "|cffff0000<GM>|r";
+            pname.append(itr->second->GetName());
+        }
+        else
+            pname = itr->second->GetName();
         std::wstring wpname;
         if (!Utf8toWStr(pname, wpname))
             { continue; }
