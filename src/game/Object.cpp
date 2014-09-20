@@ -51,6 +51,7 @@
 #include "Chat.h"
 #ifdef ENABLE_ELUNA
 #include "LuaEngine.h"
+#include "ElunaEventMgr.h"
 #endif /* ENABLE_ELUNA */
 
 Object::Object()
@@ -106,6 +107,15 @@ void Object::_Create(uint32 guidlow, uint32 entry, HighGuid guidhigh)
     SetGuidValue(OBJECT_FIELD_GUID, guid);
     SetUInt32Value(OBJECT_FIELD_TYPE, m_objectType);
     m_PackGUID.Set(guid);
+}
+
+void Object::_ReCreate(uint32 entry)
+{
+    if (!m_uint32Values)
+        { _InitValues(); }
+
+    SetUInt32Value(OBJECT_FIELD_TYPE, m_objectType);
+    SetUInt32Value(OBJECT_FIELD_ENTRY, entry);
 }
 
 void Object::SetObjectScale(float newScale)
@@ -452,9 +462,6 @@ void Object::BuildValuesUpdate(uint8 updatetype, ByteBuffer* data, UpdateMask* u
                     /* If the creature has tapped flag but is tapped by us, remove the flag */
                     if (send_value & UNIT_DYNFLAG_TAPPED && is_tapped)
                         { send_value = send_value & ~UNIT_DYNFLAG_TAPPED; }
-                    /* If creature does not have tapped flag but is not tapped by us, set the flag */
-                    else if (!(send_value & UNIT_DYNFLAG_TAPPED) && !is_tapped)
-                        { send_value = send_value | UNIT_DYNFLAG_TAPPED; }
 
                     *data << send_value;
                 }
@@ -705,6 +712,14 @@ void Object::ApplyModPositiveFloatValue(uint16 index, float  val, bool apply)
     SetFloatValue(index, cur);
 }
 
+void Object::MarkFlagUpdateForClient(uint16 index)
+{
+	MANGOS_ASSERT(index < m_valuesCount || PrintIndexError(index, true));
+
+	m_changedValues[index] = true;
+	MarkForClientUpdate();
+}
+
 void Object::SetFlag(uint16 index, uint32 newFlag)
 {
     MANGOS_ASSERT(index < m_valuesCount || PrintIndexError(index, true));
@@ -911,6 +926,9 @@ void Object::MarkForClientUpdate()
 }
 
 WorldObject::WorldObject() :
+#ifdef ENABLE_ELUNA
+    elunaEvents(new ElunaEventProcessor(this)),
+#endif /* ENABLE_ELUNA */
     m_currMap(NULL),
     m_mapId(0), m_InstanceId(0),
     m_isActiveObject(false)
@@ -921,12 +939,20 @@ WorldObject::~WorldObject()
 {
 #ifdef ENABLE_ELUNA
     Eluna::RemoveRef(this);
+    delete elunaEvents;
 #endif /* ENABLE_ELUNA */
 }
 
 void WorldObject::CleanupsBeforeDelete()
 {
     RemoveFromWorld();
+}
+
+void WorldObject::Update(uint32 update_diff, uint32 /*time_diff*/)
+{
+#ifdef ENABLE_ELUNA
+    elunaEvents->Update(update_diff);
+#endif /* ENABLE_ELUNA */
 }
 
 void WorldObject::_Create(uint32 guidlow, HighGuid guidhigh)

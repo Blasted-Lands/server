@@ -153,9 +153,6 @@ void World::CleanupsBeforeStop()
     KickAll();                                       // save and kick all players
     UpdateSessions(1);                               // real players unload required UpdateSessions call
     sBattleGroundMgr.DeleteAllBattleGrounds();       // unload battleground templates before different singletons destroyed
-#ifdef ENABLE_ELUNA
-    Eluna::Uninitialize();
-#endif /* ENABLE_ELUNA */
 }
 
 /// Find a player in a specified zone
@@ -498,6 +495,8 @@ void World::LoadConfigSettings(bool reload)
     setConfig(CONFIG_FLOAT_RATE_HONOR, "Rate.Honor", 1.0f);
     setConfigPos(CONFIG_FLOAT_RATE_MINING_AMOUNT, "Rate.Mining.Amount", 1.0f);
     setConfigPos(CONFIG_FLOAT_RATE_MINING_NEXT,   "Rate.Mining.Next", 1.0f);
+    setConfig(CONFIG_UINT32_RATE_MINING_RARE,          "Rate.Mining.Rare", 20);
+    setConfig(CONFIG_UINT32_RATE_MINING_AUTOPOOLING,   "Rate.Mining.Autopooling", 90);
     setConfigPos(CONFIG_FLOAT_RATE_INSTANCE_RESET_TIME, "Rate.InstanceResetTime", 1.0f);
     setConfigPos(CONFIG_FLOAT_RATE_TALENT, "Rate.Talent", 1.0f);
     setConfigPos(CONFIG_FLOAT_RATE_CORPSE_DECAY_LOOTED, "Rate.Corpse.Decay.Looted", 0.0f);
@@ -570,6 +569,8 @@ void World::LoadConfigSettings(bool reload)
     setConfig(CONFIG_UINT32_CHARACTERS_CREATING_DISABLED, "CharactersCreatingDisabled", 0);
 
     setConfigMinMax(CONFIG_UINT32_CHARACTERS_PER_REALM, "CharactersPerRealm", 10, 1, 10);
+
+    setConfig(CONFIG_BOOL_AUTOPOOLING_MINING_ENABLE, "Autopooling.Mining.Enable", false);
 
     // must be after CONFIG_UINT32_CHARACTERS_PER_REALM
     setConfigMin(CONFIG_UINT32_CHARACTERS_PER_ACCOUNT, "CharactersPerAccount", 50, getConfig(CONFIG_UINT32_CHARACTERS_PER_REALM));
@@ -861,6 +862,11 @@ void World::LoadConfigSettings(bool reload)
     sLog.outString("WORLD: mmap pathfinding %sabled", getConfig(CONFIG_BOOL_MMAP_ENABLED) ? "en" : "dis");
 
     setConfig(CONFIG_BOOL_ELUNA_ENABLED, "Eluna.Enabled", true);
+
+#ifdef ENABLE_ELUNA
+    if (reload)
+        sEluna->OnConfigLoad(reload);
+#endif /* ENABLE_ELUNA */
 }
 
 /// Initialize the World
@@ -945,6 +951,17 @@ void World::SetInitialWorldSettings()
     ///- Init highest guids before any guid using table loading to prevent using not initialized guids in some code.
     sObjectMgr.SetHighestGuids();                           // must be after packing instances
     sLog.outString();
+
+#ifdef ENABLE_ELUNA
+    ///- Initialize Lua Engine
+    sLog.outString("Initialize Eluna Lua Engine...");
+    Eluna::Initialize();
+#else /* ENABLE_ELUNA */
+    if (sConfig.GetBoolDefault("Eluna.Enabled", false))
+    {
+        sLog.outError("Eluna is enabled but wasn't included during compilation, not activating it.");
+    }
+#endif /* ENABLE_ELUNA */
 
     sLog.outString("Loading Page Texts...");
     sObjectMgr.LoadPageTexts();
@@ -1268,17 +1285,6 @@ void World::SetInitialWorldSettings()
     sLog.outError("SD2 is enabled but wasn't included during compilation, not activating it.");
 #endif /* ENABLE_SD2 */
 
-#ifdef ENABLE_ELUNA
-    ///- Initialize Lua Engine
-    sLog.outString("Initialize Eluna Lua Engine...");
-    Eluna::Initialize();
-#else /* ENABLE_ELUNA */
-    if (sConfig.GetBoolDefault("Eluna.Enabled", false))
-    {
-        sLog.outError("Eluna is enabled but wasn't included during compilation, not activating it.");
-    }
-#endif /* ENABLE_ELUNA */
-
     ///- Initialize game time and timers
     sLog.outString("DEBUG:: Initialize game time and timers");
     m_gameTime = time(NULL);
@@ -1351,6 +1357,13 @@ void World::SetInitialWorldSettings()
 
     sLog.outString("Initialize AuctionHouseBot...");
     sAuctionBot.Initialize();
+
+#ifdef ENABLE_ELUNA
+    ///- Run eluna scripts.
+    // in multithread foreach: run scripts
+    sEluna->RunScripts();
+    sEluna->OnConfigLoad(false); // Must be done after Eluna is initialized and scripts have run.
+#endif
 
     sLog.outString("WORLD: World initialized");
 
@@ -1538,6 +1551,11 @@ void World::Update(uint32 diff)
     // And last, but not least handle the issued cli commands
     ProcessCliCommands();
 
+    ///- Used by Eluna
+#ifdef ENABLE_ELUNA
+    sEluna->OnWorldUpdate(diff);
+#endif /* ENABLE_ELUNA */
+
     // cleanup unused GridMap objects as well as VMaps
     sTerrainMgr.Update(diff);
 }
@@ -1569,7 +1587,12 @@ namespace MaNGOS
                     { do_helper(data_list, (char*)text); }
             }
         private:
-            char* lineFromMessage(char*& pos) { char* start = strtok(pos, "\n"); pos = NULL; return start; }
+            char* lineFromMessage(char*& pos)
+            {
+                char* start = strtok(pos, "\n");
+                pos = NULL;
+                return start;
+            }
             void do_helper(WorldPacketList& data_list, char* text)
             {
                 char* pos = text;
@@ -1822,7 +1845,10 @@ void World::ShutdownServ(uint32 time, uint32 options, uint8 exitcode)
     if (time == 0)
     {
         if (!(options & SHUTDOWN_MASK_IDLE) || GetActiveAndQueuedSessionCount() == 0)
-            { m_stopEvent = true; }                             // exist code already set
+        { 
+				sObjectAccessor.SaveAllPlayers();		// save all players.
+				m_stopEvent = true;								// exist code already set
+		}                             
         else
             { m_ShutdownTimer = 1; }                            // So that the session count is re-evaluated at next world tick
     }
@@ -1832,6 +1858,11 @@ void World::ShutdownServ(uint32 time, uint32 options, uint8 exitcode)
         m_ShutdownTimer = time;
         ShutdownMsg(true);
     }
+
+    ///- Used by Eluna
+#ifdef ENABLE_ELUNA
+    sEluna->OnShutdownInitiate(ShutdownExitCode(exitcode), ShutdownMask(options));
+#endif /* ENABLE_ELUNA */
 }
 
 /// Display a shutdown message to the user(s)
@@ -1873,6 +1904,11 @@ void World::ShutdownCancel()
     SendServerMessage(msgid);
 
     DEBUG_LOG("Server %s cancelled.", (m_ShutdownMask & SHUTDOWN_MASK_RESTART ? "restart" : "shutdown"));
+
+    ///- Used by Eluna
+#ifdef ENABLE_ELUNA
+    sEluna->OnShutdownCancel();
+#endif /* ENABLE_ELUNA */
 }
 
 void World::UpdateSessions(uint32 /*diff*/)

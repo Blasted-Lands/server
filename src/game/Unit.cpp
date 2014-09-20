@@ -59,6 +59,7 @@
 #include "CreatureLinkingMgr.h"
 #ifdef ENABLE_ELUNA
 #include "LuaEngine.h"
+#include "ElunaEventMgr.h"
 #endif /* ENABLE_ELUNA */
 
 #include <math.h>
@@ -320,6 +321,10 @@ void Unit::Update(uint32 update_diff, uint32 p_time)
     _UpdateAura();
     }else
     m_AurasCheck -= p_time;*/
+
+#ifdef ENABLE_ELUNA
+    elunaEvents->Update(update_diff);
+#endif /* ENABLE_ELUNA */
 
     // WARNING! Order of execution here is important, do not change.
     // Spells must be processed with event system BEFORE they go to _UpdateSpells.
@@ -1125,6 +1130,7 @@ void Unit::JustKilledCreature(Creature* victim, Player* responsiblePlayer)
         { return; }                                             // Pets might have been unsummoned at this place, do not handle them further!
 
     /* ******************************** Prepare loot if can ************************************ */
+	victim->SetKilledTime(time(NULL));
     victim->DeleteThreatList();
     // only lootable if it has loot or can drop gold
     victim->PrepareBodyLootState();
@@ -4634,10 +4640,7 @@ void Unit::SetPowerType(Powers new_powertype)
         if (new_powertype == POWER_RAGE)
             curValue = 0;
 
-        /* set power
-        SetMaxPower(new_powertype, maxValue);
-        SetPower(new_powertype, curValue); *///OLD DRUID SHAPESHIFT AGENCY
-		// set power (except for mana) 
+        // set power (except for mana) 
         if (new_powertype != POWER_MANA) 
         { 
             SetMaxPower(new_powertype, maxValue); 

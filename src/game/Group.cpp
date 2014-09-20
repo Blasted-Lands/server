@@ -191,6 +191,7 @@ bool Group::LoadMemberFromDB(uint32 guidLow, uint8 subgroup, bool assistant)
 
     member.group     = subgroup;
     member.assistant = assistant;
+	member.joinTime = time(NULL);
     m_memberSlots.push_back(member);
 
     SubGroupCounterIncrease(subgroup);
@@ -825,6 +826,8 @@ void Group::EndRoll()
 void Group::CountTheRoll(Rolls::iterator& rollI)
 {
     Roll* roll = *rollI;
+	
+
     if (!roll->isValid())                                   // is loot already deleted ?
     {
         rollI = RollId.erase(rollI);
@@ -867,12 +870,22 @@ void Group::CountTheRoll(Rolls::iterator& rollI)
                     item->is_looted = true;
                     roll->getLoot()->NotifyItemRemoved(roll->itemSlot);
                     --roll->getLoot()->unlootedCount;
-                    player->StoreNewItem(dest, roll->itemid, true, item->randomPropertyId);
+                    Item* newitem = player->StoreNewItem(dest, roll->itemid, true, item->randomPropertyId);					
+					player->SendNewItem(newitem, uint32(item->count), false, false, true);
+
+					/// Warn players about the loot status on the corpse.
+					Creature * creature = player->GetMap()->GetCreature(roll->lootedTargetGUID);
+					/// If creature has been fully looted, remove flag.
+					if (creature->loot.isLooted())
+					{
+						creature->RemoveFlag(UNIT_DYNAMIC_FLAGS, UNIT_DYNFLAG_LOOTABLE);
+					}
                 }
                 else
                 {
                     item->is_blocked = false;
                     player->SendEquipError(msg, NULL, NULL, roll->itemid);
+					item->winner = player->GetObjectGuid();
                 }
             }
         }
@@ -912,13 +925,25 @@ void Group::CountTheRoll(Rolls::iterator& rollI)
                 {
                     item->is_looted = true;
                     roll->getLoot()->NotifyItemRemoved(roll->itemSlot);
-                    --roll->getLoot()->unlootedCount;
-                    player->StoreNewItem(dest, roll->itemid, true, item->randomPropertyId);
+                    --roll->getLoot()->unlootedCount;					
+                    Item* newitem = player->StoreNewItem(dest, roll->itemid, true, item->randomPropertyId);
+					player->SendNewItem(newitem, uint32(item->count), false, false, true);
+
+					/// Warn players about the loot status on the corpse.
+					Creature * creature = player->GetMap()->GetCreature(roll->lootedTargetGUID);
+					/// If creature has been fully looted, remove flag.
+					if (creature->loot.isLooted())
+					{
+						creature->RemoveFlag(UNIT_DYNAMIC_FLAGS, UNIT_DYNFLAG_LOOTABLE);
+					}
                 }
                 else
                 {
                     item->is_blocked = false;
                     player->SendEquipError(msg, NULL, NULL, roll->itemid);
+
+					// Storing the winner to recall in LootView.
+					item->winner = player->GetObjectGuid();
                 }
             }
         }
@@ -929,6 +954,7 @@ void Group::CountTheRoll(Rolls::iterator& rollI)
         LootItem* item = &(roll->getLoot()->items[roll->itemSlot]);
         if (item) { item->is_blocked = false; }
     }
+
     rollI = RollId.erase(rollI);
     delete roll;
 }
@@ -1152,6 +1178,7 @@ bool Group::_addMember(ObjectGuid guid, const char* name, bool isAssistant, uint
     member.name      = name;
     member.group     = group;
     member.assistant = isAssistant;
+	member.joinTime = time(NULL);
     m_memberSlots.push_back(member);
 
     SubGroupCounterIncrease(group);

@@ -474,10 +474,14 @@ void WorldSession::DoLootRelease(ObjectGuid lguid)
             /* Copy creature loot to loot variable */
             loot = &pCreature->loot;
 
-            // update next looter
-            if (Group* group = pCreature->GetGroupLootRecipient())
-                if (group->GetLooterGuid() == player->GetObjectGuid())
-                    group->UpdateLooterGuid(pCreature);
+			/* Update for other players. */
+			if(!loot->isLooted())
+			{ 
+				Group const* group = pCreature->GetGroupLootRecipient();
+				// Checking whether it has been looted once by the designed looter (master loot case).
+				pCreature->hasBeenLootedOnce = (group ? group->GetLooterGuid() == player->GetObjectGuid() : true);	
+				pCreature->MarkFlagUpdateForClient(UNIT_DYNAMIC_FLAGS);
+			}			
 
             /* We've completely looted the creature, mark it as available for skinning */
             if (loot->isLooted() && !pCreature->IsAlive())
