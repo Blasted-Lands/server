@@ -37,6 +37,8 @@
 #include "BattleGround/BattleGround.h"
 #include "OutdoorPvP/OutdoorPvP.h"
 #include "WaypointMovementGenerator.h"
+#include "LFGMgr.h"
+
 #ifdef ENABLE_ELUNA
 #include "LuaEngine.h"
 #endif /* ENABLE_ELUNA */
@@ -666,7 +668,7 @@ void ScriptMgr::LoadScripts(ScriptMapMapName& scripts, const char* tablename)
             }
             case SCRIPT_COMMAND_PAUSE_WAYPOINTS:            // 32
                 break;
-            case SCRIPT_COMMAND_RESERVED_1:                 // 33
+            case SCRIPT_COMMAND_JOIN_LFG:                   // 33
                 break;
             case SCRIPT_COMMAND_TERMINATE_COND:             // 34
             {
@@ -1756,9 +1758,14 @@ bool ScriptAction::HandleScriptStep()
                 { ((Creature*)pSource)->clearUnitState(UNIT_STAT_WAYPOINT_PAUSED); }
             break;
         }
-        case SCRIPT_COMMAND_RESERVED_1:                     // 33
+        case SCRIPT_COMMAND_JOIN_LFG:                       // 33
         {
-            sLog.outError(" DB-SCRIPTS: Process table `%s` id %u, command %u not supported.", m_table, m_script->id, m_script->command);
+            Player* pPlayer = GetPlayerTargetOrSourceAndLog(pSource, pTarget);
+            if (!pPlayer)
+                break;
+
+            sLFGMgr.AddToQueue(pPlayer, m_script->joinLfg.areaId);
+
             break;
         }
         case SCRIPT_COMMAND_TERMINATE_COND:                 // 34
@@ -2054,22 +2061,20 @@ bool ScriptMgr::OnGossipHello(Player* pPlayer, GameObject* pGameObject)
 
 bool ScriptMgr::OnGossipSelect(Player* pPlayer, Creature* pCreature, uint32 sender, uint32 action, const char* code)
 {
+#ifdef ENABLE_ELUNA
     if (code)
     {
         // Used by Eluna
-#ifdef ENABLE_ELUNA
         if (sEluna->OnGossipSelectCode(pPlayer, pCreature, sender, action, code))
             return true;
-#endif /* ENABLE_ELUNA */
     }
     else
     {
         // Used by Eluna
-#ifdef ENABLE_ELUNA
         if (sEluna->OnGossipSelect(pPlayer, pCreature, sender, action))
             return true;
-#endif /* ENABLE_ELUNA */
     }
+#endif /* ENABLE_ELUNA */
 
     if (code)
         { return m_pOnGossipSelectWithCode != NULL && m_pOnGossipSelectWithCode(pPlayer, pCreature, sender, action, code); }
@@ -2079,19 +2084,18 @@ bool ScriptMgr::OnGossipSelect(Player* pPlayer, Creature* pCreature, uint32 send
 
 bool ScriptMgr::OnGossipSelect(Player* pPlayer, GameObject* pGameObject, uint32 sender, uint32 action, const char* code)
 {
+    // Used by Eluna
+#ifdef ENABLE_ELUNA
     if (code)
     {
-        // Used by Eluna
-#ifdef ENABLE_ELUNA
         if (sEluna->OnGossipSelectCode(pPlayer, pGameObject, sender, action, code))
             return true;
-#endif /* ENABLE_ELUNA */
     }
     else
-        // Used by Eluna
-#ifdef ENABLE_ELUNA
+    {
         if (sEluna->OnGossipSelect(pPlayer, pGameObject, sender, action))
             return true;
+    }
 #endif /* ENABLE_ELUNA */
 
     if (code)

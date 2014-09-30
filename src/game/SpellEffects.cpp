@@ -3319,6 +3319,18 @@ void Spell::EffectScriptEffect(SpellEffectIndex eff_idx)
         {
             switch (m_spellInfo->Id)
             {
+                case 1509:                                  // GM Mode OFF
+                {
+                    if (unitTarget->GetTypeId() == TYPEID_PLAYER)
+                        { ((Player*)unitTarget)->SetGameMaster(false); }
+                    break;
+                }
+                case 18139:                                 // GM Mode ON
+                {
+                    if (unitTarget->GetTypeId() == TYPEID_PLAYER)
+                        { ((Player*)unitTarget)->SetGameMaster(true); }
+                    break;
+                }
                 case 8856:                                  // Bending Shinbone
                 {
                     if (!itemTarget && m_caster->GetTypeId() != TYPEID_PLAYER)
@@ -4482,6 +4494,7 @@ void Spell::EffectSkinning(SpellEffectIndex /*eff_idx*/)
 
     ((Player*)m_caster)->SendLoot(creature->GetObjectGuid(), LOOT_SKINNING);
     creature->RemoveFlag(UNIT_FIELD_FLAGS, UNIT_FLAG_SKINNABLE);
+    creature->SetLootRecipient(m_caster);
 
     int32 reqValue = targetLevel < 10 ? 0 : targetLevel < 20 ? (targetLevel - 10) * 10 : targetLevel * 5;
 

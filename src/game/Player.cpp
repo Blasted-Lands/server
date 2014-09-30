@@ -2227,11 +2227,11 @@ void Player::UninviteFromGroup()
     }
 }
 
-void Player::RemoveFromGroup(Group* group, ObjectGuid guid)
+void Player::RemoveFromGroup(Group* group, ObjectGuid guid, uint8 removeMethod)
 {
     if (group)
     {
-        if (group->RemoveMember(guid, 0) <= 1)
+        if (group->RemoveMember(guid, removeMethod) <= 1)
         {
             // group->Disband(); already disbanded in RemoveMember
             sObjectMgr.RemoveGroup(group);
@@ -4648,15 +4648,19 @@ uint32 Player::GetShieldBlockValue() const
 float Player::GetMeleeCritFromAgility()
 {
     // from mangos 3462 for 1.12
-    float val = 0.0f, classrate = 0.0f;
-    // critical
+    float val = 0.0f, classrate = 0.0f, levelfactor = 0.0f, fg = 0.0f;
+    
+	fg = (0.35f*(float) (getLevel())) + 5.55f;
+	levelfactor = (106.20f / fg) - 3;
+
+	// critical
     switch (getClass())
     {
         case CLASS_PALADIN: classrate = 19.77f; break;
         case CLASS_SHAMAN:  classrate = 19.7f;  break;
         case CLASS_MAGE:    classrate = 19.44f; break;
         case CLASS_ROGUE:   classrate = 29.0f;  break;
-        case CLASS_HUNTER:  classrate = 53.0f;  break;      // in 2.0.x = 33
+        case CLASS_HUNTER:  classrate = 53.0f;  break;
         case CLASS_PRIEST:
         case CLASS_WARLOCK:
         case CLASS_DRUID:
@@ -4664,71 +4668,39 @@ float Player::GetMeleeCritFromAgility()
         default:            classrate = 20.0f; break;
     }
 
-    val = GetStat(STAT_AGILITY) / classrate;
+    val = levelfactor * (GetStat(STAT_AGILITY) / classrate);
     return val;
 }
 
 float Player::GetDodgeFromAgility()
 {
     // from mangos 3462 for 1.12
-    float val = 0, classrate = 0;
+    float val = 0, classrate = 0, levelrate = 0;
 
-    // dodge
-    if (getClass() == CLASS_HUNTER) { classrate = 26.5; }
-    else if (getClass() == CLASS_ROGUE)  { classrate = 14.5; }
-    else { classrate = 20; }
+	levelrate = ((16.225f/((0.45f*(float)(getLevel()))+2.5f))-0.1f)/0.42f;
+
+	// dodge
+	switch (getClass())
+    {
+        case CLASS_ROGUE:   classrate = 14.5;  break;
+        case CLASS_HUNTER:  classrate = 26.5f;  break;
+		case CLASS_PALADIN:
+		case CLASS_SHAMAN:
+		case CLASS_MAGE:
+        case CLASS_PRIEST:
+        case CLASS_WARLOCK:
+        case CLASS_DRUID:
+        case CLASS_WARRIOR:
+        default:            classrate = 20.0f; break;
+    }
+
     ///*+(Defense*0,04);
     if (getRace() == RACE_NIGHTELF)
-        { val = GetStat(STAT_AGILITY) / classrate + 1; }
+        { val = (levelrate * (GetStat(STAT_AGILITY) / classrate)) + 1; }
     else
-        { val = GetStat(STAT_AGILITY) / classrate; }
+        { val = (levelrate * (GetStat(STAT_AGILITY) / classrate)); }
 
     return val;
-
-    /* [-ZERO]
-    // Table for base dodge values
-    const float dodge_base[MAX_CLASSES] =
-    {
-         0.0075f,   // Warrior
-         0.00652f,  // Paladin
-        -0.0545f,   // Hunter
-        -0.0059f,   // Rogue
-         0.03183f,  // Priest
-         0.0114f,   // DK
-         0.0167f,   // Shaman
-         0.034575f, // Mage
-         0.02011f,  // Warlock
-         0.0f,      // ??
-        -0.0187f    // Druid
-    };
-    // Crit/agility to dodge/agility coefficient multipliers
-    const float crit_to_dodge[MAX_CLASSES] =
-    {
-         1.1f,      // Warrior
-         1.0f,      // Paladin
-         1.6f,      // Hunter
-         2.0f,      // Rogue
-         1.0f,      // Priest
-         1.0f,      // DK?
-         1.0f,      // Shaman
-         1.0f,      // Mage
-         1.0f,      // Warlock
-         0.0f,      // ??
-         1.7f       // Druid
-    };
-
-    uint32 level = getLevel();
-    uint32 pclass = getClass();
-
-    if (level>GT_MAX_LEVEL) level = GT_MAX_LEVEL;
-
-    // Dodge per agility for most classes equal crit per agility (but for some classes need apply some multiplier)
-    GtChanceToMeleeCritEntry  const *dodgeRatio = sGtChanceToMeleeCritStore.LookupEntry((pclass-1)*GT_MAX_LEVEL + level-1);
-    if (dodgeRatio==NULL || pclass > MAX_CLASSES)
-        return 0.0f;
-
-    float dodge=dodge_base[pclass-1] + GetStat(STAT_AGILITY) * dodgeRatio->ratio * crit_to_dodge[pclass-1];
-    return dodge*100.0f; */
 }
 
 float Player::GetSpellCritFromIntellect()
@@ -5785,6 +5757,7 @@ void Player::RewardReputation(Unit* pVictim, float rate)
     if (((Creature*)pVictim)->IsReputationGainDisabled())
         return;
 
+    // used current difficulty creature entry instead normal version (GetEntry())
     ReputationOnKillEntry const* Rep = sObjectMgr.GetReputationOnKillEntry(((Creature*)pVictim)->GetEntry());
 
     if (!Rep)
@@ -7157,15 +7130,15 @@ void Player::SendLoot(ObjectGuid guid, LootType loot_type)
 
             loot = &go->loot;
 
-            Player* recipient = go->GetLootRecipient();
-            if (!recipient)
-            {
-                go->SetLootRecipient(this);
-                recipient = this;
-            }
+			Player* recipient = go->GetLootRecipient();
+			if (!recipient)
+			{
+				go->SetLootRecipient(this);
+		        recipient = this;
+			}
 
-            // generate loot only if ready for open and spawned in world
-            if (go->getLootState() == GO_READY && go->isSpawned())
+            // generate loot only if ready for open and spawned in world and not already looted once.
+			if (go->getLootState() == GO_READY && go->isSpawned())
             {
                 uint32 lootid =  go->GetGOInfo()->GetLootId();
                 if ((go->GetEntry() == BG_AV_OBJECTID_MINE_N || go->GetEntry() == BG_AV_OBJECTID_MINE_S))
@@ -7207,22 +7180,19 @@ void Player::SendLoot(ObjectGuid guid, LootType loot_type)
                         {
                             if (Group* group = go->GetGroupLootRecipient())
                             {
-                                group->UpdateLooterGuid(go, true);
-
                                 switch (group->GetLootMethod())
                                 {
                                     case GROUP_LOOT:
-                                        // GroupLoot delete items over threshold (threshold even not implemented), and roll them. Items with quality<threshold, round robin
                                         group->GroupLoot(go, loot);
-                                        permission = GROUP_PERMISSION;
+										permission = ALL_PERMISSION;
                                         break;
                                     case NEED_BEFORE_GREED:
                                         group->NeedBeforeGreed(go, loot);
-                                        permission = GROUP_PERMISSION;
+                                        permission = ALL_PERMISSION;
                                         break;
                                     case MASTER_LOOT:
                                         group->MasterLoot(go, loot);
-                                        permission = MASTER_PERMISSION;
+										permission = MASTER_PERMISSION;
                                         break;
                                     default:
                                         break;
@@ -7231,35 +7201,26 @@ void Player::SendLoot(ObjectGuid guid, LootType loot_type)
                         }
                         break;
                 }
-
-                go->SetLootState(GO_ACTIVATED);
+				go->SetLootState(GO_ACTIVATED);
             }
+
             if (go->getLootState() == GO_ACTIVATED && go->GetGoType() == GAMEOBJECT_TYPE_CHEST && go->GetGOInfo()->chest.groupLootRules)
             {
                 if (Group* group = go->GetGroupLootRecipient())
                 {
                     if (group == GetGroup())
                     {
-                        if (group->GetLootMethod() == FREE_FOR_ALL)
-                            { permission = ALL_PERMISSION; }
-                        else if (group->GetLooterGuid() == GetObjectGuid())
-                        {
-                            if (group->GetLootMethod() == MASTER_LOOT)
-                                { permission = MASTER_PERMISSION; }
-                            else
-                                { permission = ALL_PERMISSION; }
-                        }
-                        else
-                            { permission = GROUP_PERMISSION; }
-                    }
-                    else
-                        { permission = NONE_PERMISSION; }
-                }
-                else if (recipient == this)
-                    { permission = ALL_PERMISSION; }
-                else
-                    { permission = NONE_PERMISSION; }
+						if(group->GetLootMethod() == MASTER_LOOT)
+							{ permission = MASTER_PERMISSION; }
+						else
+							{ permission = ALL_PERMISSION; }
+					}
+				}
             }
+
+			go->SetGoState(GO_STATE_ACTIVE);
+			SetFlag(UNIT_FIELD_FLAGS, UNIT_FLAG_LOOTING);
+
             break;
         }
         case HIGHGUID_ITEM:
@@ -7409,6 +7370,12 @@ void Player::SendLoot(ObjectGuid guid, LootType loot_type)
                     }
                 }
 
+                //if loot for skin is true loot type must be skinning, so loot_type skinning needs to be set in case of reopening the loot window, after bags full or loot not taken
+                if (creature->lootForSkin)
+                {
+                    loot_type = LOOT_SKINNING;
+                }
+
                 // possible only if creature->lootForBody && loot->empty() at spell cast check
                 if (loot_type == LOOT_SKINNING)
                 {
@@ -7439,20 +7406,11 @@ void Player::SendLoot(ObjectGuid guid, LootType loot_type)
 									permission = ALL_PERMISSION;
 									break;
 								case MASTER_LOOT:
-									if(group->GetLooterGuid() == GetObjectGuid())
-										{ permission = MASTER_PERMISSION; } 
-									else 
-										{ permission = (creature->hasBeenLootedOnce ? ALL_PERMISSION : GROUP_PERMISSION); }
+									permission = MASTER_PERMISSION;
 									break;
 								case GROUP_LOOT:
 								case NEED_BEFORE_GREED:
 									permission = GROUP_PERMISSION;
-									
-									if(loot->IsWinner(this))
-									{
-										permission = OWNER_PERMISSION;
-									}
-
 									break;
 							}
                         }
@@ -7536,27 +7494,27 @@ void Player::SendInitWorldStates(uint32 zoneid)
     uint32 count = 0;                                       // count of world states in packet
 
     WorldPacket data(SMSG_INIT_WORLD_STATES, (4 + 4 + 2 + 6));
-    data << uint32(mapid);                              // mapid
-    data << uint32(zoneid);                             // zone id
+    data << uint32(mapid);                                  // mapid
+    data << uint32(zoneid);                                 // zone id
     size_t count_pos = data.wpos();
-    data << uint16(0);                                  // count of uint64 blocks, placeholder
+    data << uint16(0);                                      // count of uint64 blocks, placeholder
 
     switch (zoneid)
     {
-        case 139:                                       // Eastern Plaguelands
-        case 1377:                                      // Silithus
+        case 139:                                           // Eastern Plaguelands
+        case 1377:                                          // Silithus
             if (OutdoorPvP* outdoorPvP = sOutdoorPvPMgr.GetScript(zoneid))
                 outdoorPvP->FillInitialWorldStates(data, count);
             break;
-        case 2597:                                      // AV
+        case 2597:                                          // AV
             if (bg && bg->GetTypeID() == BATTLEGROUND_AV)
                 bg->FillInitialWorldStates(data, count);
             break;
-        case 3277:                                      // WS
+        case 3277:                                          // WS
             if (bg && bg->GetTypeID() == BATTLEGROUND_WS)
                 bg->FillInitialWorldStates(data, count);
             break;
-        case 3358:                                      // AB
+        case 3358:                                          // AB
             if (bg && bg->GetTypeID() == BATTLEGROUND_AB)
                 bg->FillInitialWorldStates(data, count);
             break;
@@ -13679,7 +13637,7 @@ bool Player::LoadFromDB(ObjectGuid guid, SqlQueryHolder* holder)
     if (HasFlag(PLAYER_FLAGS, PLAYER_FLAGS_GM))
         { SetUInt32Value(PLAYER_FLAGS, 0 | old_safe_flags); }
 
-    m_taxi.LoadTaxiMask(fields[17].GetString());
+    m_taxi.LoadTaxiMask(fields[17].GetString());            // must be before InitTaxiNodesForLevel
 
     uint32 extraflags = fields[31].GetUInt32();
 
@@ -17939,12 +17897,12 @@ bool Player::IsSpellFitByClassAndRace(uint32 spell_id, uint32* pReqlevel /*= NUL
                     switch (spell_id) {
                         case 33388: // Riding 
                         case 33389: // Apprentice Riding
-                            if (getLevel() < AccountTypes(sWorld.getConfig(CONFIG_UINT32_MIN_TRAIN_MOUNT_LEVEL)))
+                            if (getLevel() < uint32(sWorld.getConfig(CONFIG_UINT32_MIN_TRAIN_MOUNT_LEVEL)))
                                 { return false; }
                             break;
                         case 33391: // Riding
                         case 33392: // Journeyman Riding
-                            if (getLevel() < AccountTypes(sWorld.getConfig(CONFIG_UINT32_MIN_TRAIN_EPIC_MOUNT_LEVEL)))
+                            if (getLevel() < uint32(sWorld.getConfig(CONFIG_UINT32_MIN_TRAIN_EPIC_MOUNT_LEVEL)))
                                 { return false; }
                             break;
                         default: // any other spell
@@ -19158,9 +19116,9 @@ void Player::ModifyMoney(int32 d)
 #endif /* ENABLE_ELUNA */
 
     if (d < 0)
-        SetMoney(GetMoney() > uint32(-d) ? GetMoney() + d : 0);
+        { SetMoney(GetMoney() > uint32(-d) ? GetMoney() + d : 0); }
     else
-        SetMoney(GetMoney() < uint32(MAX_MONEY_AMOUNT - d) ? GetMoney() + d : MAX_MONEY_AMOUNT);
+        { SetMoney(GetMoney() < uint32(MAX_MONEY_AMOUNT - d) ? GetMoney() + d : MAX_MONEY_AMOUNT); }
 
 }
 

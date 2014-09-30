@@ -392,15 +392,6 @@ void GameObject::Update(uint32 update_diff, uint32 p_time)
                     if (GetGOInfo()->GetAutoCloseTime() && (m_cooldownTime < time(NULL)))
                         { ResetDoorOrButton(); }
                     break;
-                case GAMEOBJECT_TYPE_CHEST:
-                    if (m_groupLootId)
-                    {
-                        if (m_groupLootTimer <= update_diff)
-                            { StopGroupLoot(); }
-                        else
-                            { m_groupLootTimer -= update_diff; }
-                    }
-                    break;
                 case GAMEOBJECT_TYPE_GOOBER:
                     if (m_cooldownTime < time(NULL))
                     {
@@ -1540,34 +1531,6 @@ void GameObject::Use(Unit* user)
             AddUse();
             break;
         }
-        case GAMEOBJECT_TYPE_MEETINGSTONE:                  // 23
-        {
-            GameObjectInfo const* info = GetGOInfo();
-
-            if (user->GetTypeId() != TYPEID_PLAYER)
-                { return; }
-
-            Player* player = (Player*)user;
-
-            Player* targetPlayer = ObjectAccessor::FindPlayer(player->GetSelectionGuid());
-
-            // accept only use by player from same group for caster except caster itself
-            if (!targetPlayer || targetPlayer == player || !targetPlayer->IsInSameGroupWith(player))
-                { return; }
-
-            // required lvl checks!
-            uint8 level = player->getLevel();
-            if (level < info->meetingstone.minLevel || level > info->meetingstone.maxLevel)
-                { return; }
-
-            level = targetPlayer->getLevel();
-            if (level < info->meetingstone.minLevel || level > info->meetingstone.maxLevel)
-                { return; }
-
-            spellId = 23598;
-
-            break;
-        }
         case GAMEOBJECT_TYPE_FLAGSTAND:                     // 24
         {
             if (user->GetTypeId() != TYPEID_PLAYER)
@@ -1784,8 +1747,7 @@ void GameObject::RollIfMineralVein()
     GameObjectInfo const* goinfo = ObjectMgr::GetGameObjectInfo(GetEntry());
     if (goinfo->chest.minSuccessOpens != 0 && goinfo->chest.maxSuccessOpens > goinfo->chest.minSuccessOpens) //in this case it is a mineral vein
     {
-        uint32 entrynew;
-        entrynew = RollMineralVein(GetRealEntry());
+        uint32 entrynew = RollMineralVein(GetRealEntry());
 
         uint32 guid = GetObjectGuid();
 
@@ -1800,7 +1762,7 @@ void GameObject::RollIfMineralVein()
 
 uint32 GameObject::RollMineralVein(uint32 entry)      //Maybe incedicite bloodstone and indurium have alternate spawns?
 {
-    uint32 entrynew;
+    uint32 entrynew = entry;
     switch (entry)
     {
         case 1732: // Tin can spawn Silver
